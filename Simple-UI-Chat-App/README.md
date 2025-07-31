@@ -71,6 +71,7 @@ pip install flask flask-cors openai python-dotenv
 Create a `.env` file in the root directory:
 
 ```env
+# Model Endpoint URL
 ENDPOINT_URL=https://your-resource.openai.azure.com/
 DEPLOYMENT_NAME=your-deployment-name
 AZURE_OPENAI_API_KEY=your-api-key

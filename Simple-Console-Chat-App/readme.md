@@ -56,6 +56,7 @@ pip install openai~=1.60.2 python-dotenv~=1.0.0
 The `.env` file contains your Azure OpenAI configuration. Update it with your actual values:
 
 ```env
+# Model Endpoint URL
 ENDPOINT_URL="https://your-resource-name.cognitiveservices.azure.com/openai/deployments/your-deployment/chat/completions?api-version=2025-01-01-preview"
 DEPLOYMENT_NAME="your-deployment-name"
 AZURE_OPENAI_API_KEY="your-api-key"
