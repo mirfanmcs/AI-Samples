@@ -1,176 +1,150 @@
 # Azure OpenAI Simple Console Chat Application
 
-A simple Python console chat application that demonstrates how to interact with Azure OpenAI services using the GPT-4o model for chat completions.
+A simple Python console application that demonstrates how to interact with Azure OpenAI's chat completion API with streaming responses. This application provides a command-line interface for having conversations with an AI assistant.
 
-## Overview
+## Features
 
-This project showcases a basic implementation of Azure OpenAI integration, featuring:
-- Chat completion with streaming output
-- Environment-based configuration
-- Multi-turn conversation handling
-- Error handling and best practices
+- Interactive console chat interface
+- Streaming responses for real-time output
+- Conversation history maintained throughout the session
+- Environment variable configuration for Azure OpenAI credentials
+- Simple and clean code structure
 
 ## Prerequisites
 
 - Python 3.7 or higher
-- An Azure OpenAI resource with a deployed GPT-4o model
-- Valid Azure OpenAI API key and endpoint
+- Azure OpenAI service instance
+- Azure OpenAI API key and endpoint
 
-## Project Structure
+## Installation
 
-```
-.
-├── .env                 # Environment variables (not tracked in git)
-├── install.sh          # Installation script for dependencies
-├── requirements.txt    # Python dependencies
-├── run_model.py        # Main application file
-└── README.md           # This file
-```
-
-## Setup Instructions
-
-### 1. Clone or Download the Project
-
-Ensure you have all the project files in your working directory.
-
-### 2. Install Dependencies
-
-#### Using the install script (Linux/macOS):
+### Option 1: Using the install script (Linux/macOS)
 ```bash
 chmod +x install.sh
 ./install.sh
 ```
 
-#### Manual installation:
+### Option 2: Manual installation
 ```bash
 pip install -r requirements.txt --user
 ```
 
-#### Using pip directly:
+### Option 3: Using virtual environment (recommended)
 ```bash
-pip install openai~=1.60.2 python-dotenv~=1.0.0
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# On Windows:
+venv\Scripts\activate
+# On Linux/macOS:
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt --user
 ```
 
-### 3. Configure Environment Variables
+## Configuration
 
-The `.env` file contains your Azure OpenAI configuration. Update it with your actual values:
+1. Create a `.env` file in the project root directory with the following content:
 
 ```env
 # Model Endpoint URL or Azure OpenAI endpoint
-ENDPOINT_URL="https://your-resource-name.cognitiveservices.azure.com/openai/deployments/your-deployment/chat/completions?api-version=2025-01-01-preview"
-DEPLOYMENT_NAME="your-deployment-name"
-AZURE_OPENAI_API_KEY="your-api-key"
+ENDPOINT_URL=your_azure_openai_endpoint_url
+DEPLOYMENT_NAME=your_deployment_name
+AZURE_OPENAI_API_KEY=your_api_key
 ```
 
-**Important**: Never commit the `.env` file to version control as it contains sensitive API keys.
+2. Replace the placeholder values with your actual Azure OpenAI credentials:
+   - `ENDPOINT_URL`: Your Azure OpenAI service endpoint (e.g., `https://your-resource.openai.azure.com/`)
+   - `DEPLOYMENT_NAME`: The name of your deployed model (e.g., `gpt-4`, `gpt-35-turbo`)
+   - `AZURE_OPENAI_API_KEY`: Your Azure OpenAI API key
 
-## Running the Application
+## Usage
 
-Execute the main script:
+1. Ensure you have configured the `.env` file with your Azure OpenAI credentials
+2. Run the application:
 
 ```bash
-python run_model.py
+python app.py
 ```
 
-The application will:
-1. Load configuration from the `.env` file
-2. Initialize the Azure OpenAI client
-3. Send a predefined conversation to the model
-4. Stream the response in real-time
-5. Close the connection
+3. The application will start and prompt you to enter a message
+4. Type your message and press Enter to send it to the AI
+5. The AI's response will be streamed in real-time
+6. Continue the conversation by entering more messages
+7. Type `quit` to exit the application
 
-## Code Features
+### Example Session
 
-### Streaming Output
-The application uses streaming mode (`stream=True`) to display the response in real-time as it's generated.
+```
+Enter the prompt (or type 'quit' to exit): Hello, how are you?
+Hello! I'm doing well, thank you for asking. I'm here and ready to help you with any questions or tasks you might have. How are you doing today?
 
-### Multi-turn Conversation
-The code includes a conversation history with:
-- System message defining the AI's role
-- Previous user questions about Paris
-- Assistant responses
-- A follow-up question
+Enter the prompt (or type 'quit' to exit): What can you help me with?
+I can help you with a wide variety of tasks including:
 
-### Configuration Parameters
-- **Temperature**: 0.7 (controls randomness)
-- **Max Tokens**: 800 (maximum response length)
-- **Top P**: 0.95 (nucleus sampling)
-- **Frequency/Presence Penalty**: 0 (no repetition penalties)
+- Answering questions on various topics
+- Writing and editing text
+- Coding assistance and debugging
+- Problem-solving and analysis
+- Creative writing and brainstorming
+- Educational explanations
+- And much more!
 
-## Customization
+Is there something specific you'd like assistance with today?
 
-### Modify the Conversation
-Edit the `chat_prompt` list in [`run_model.py`](run_model.py) to change the conversation:
-
-```python
-chat_prompt = [
-    {
-        "role": "user",
-        "content": [
-            {
-                "type": "text",
-                "text": "Your custom question here"
-            }
-        ]
-    }
-]
+Enter the prompt (or type 'quit' to exit): quit
 ```
 
-### Add Image Support
-Uncomment and modify the image processing section:
+## Project Structure
 
-```python
-IMAGE_PATH = "path/to/your/image.jpg"
-encoded_image = base64.b64encode(open(IMAGE_PATH, 'rb').read()).decode('ascii')
+```
+Simple-Console-Chat-App/
+├── app.py              # Main application file
+├── requirements.txt    # Python dependencies
+├── install.sh         # Installation script for Linux/macOS
+├── readme.md          # This file
+└── .env               # Environment variables (create this file)
 ```
 
-### Change Output Mode
-Switch between streaming and direct output by modifying the `stream` parameter:
+## Dependencies
 
-```python
-# For direct output
-stream=False
+- `openai~=1.60.2`: Official OpenAI Python library for API interactions
+- `python-dotenv~=1.0.0`: For loading environment variables from .env file
 
-# For streaming output
-stream=True
-```
+## Configuration Options
 
-## Security Best Practices
+The application uses the following Azure OpenAI API parameters:
 
-1. **Never hardcode API keys** in your source code
-2. **Use environment variables** for sensitive configuration
-3. **Add `.env` to `.gitignore`** to prevent accidental commits
-4. **Rotate API keys regularly**
-5. **Use least privilege access** for your Azure OpenAI resource
+- `max_tokens`: 800 (maximum response length)
+- `temperature`: 0.7 (response creativity/randomness)
+- `top_p`: 0.95 (nucleus sampling parameter)
+- `frequency_penalty`: 0 (penalize frequent tokens)
+- `presence_penalty`: 0 (penalize present tokens)
+- `stream`: True (enable streaming responses)
+
+You can modify these parameters in the `app.py` file to customize the AI's behavior.
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **Import Error**: Ensure all dependencies are installed
-   ```bash
-   pip install -r requirements.txt
-   ```
+1. **Missing .env file**: Ensure you have created a `.env` file with the required environment variables
+2. **Invalid credentials**: Verify your Azure OpenAI endpoint, deployment name, and API key
+3. **Network issues**: Check your internet connection and firewall settings
+4. **Package installation errors**: Ensure you have Python 3.7+ and pip installed
 
-2. **Authentication Error**: Verify your API key and endpoint URL in `.env`
+### Error Messages
 
-3. **Model Not Found**: Check that your deployment name matches the one in Azure
+- `"Please enter a prompt."`: You entered an empty message, try typing something
+- Connection errors: Check your internet connection and Azure OpenAI service status
+- Authentication errors: Verify your API key and endpoint URL in the `.env` file
 
-4. **Permission Error**: Ensure your API key has the necessary permissions
+## Contributing
 
-### Error Handling
-The current implementation doesn't include comprehensive error handling. Consider adding try-catch blocks for production use.
-
-## Dependencies
-
-- **openai**: Official OpenAI Python client library
-- **python-dotenv**: Load environment variables from .env file
-- **ansible-core**: (Note: This seems unrelated to the project and may be removed)
+Feel free to fork this project and submit pull requests for improvements or bug fixes.
 
 ## License
 
 These samples are provided for educational and demonstration purposes.
-
-## Contributing
-
-Feel free to submit issues and pull requests to improve this example application.

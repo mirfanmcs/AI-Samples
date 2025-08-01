@@ -205,7 +205,7 @@ curl -X POST http://127.0.0.1:5000/api/clear
 
 1. **Module not found errors**
    ```bash
-   pip install -r requirements.txt
+   pip install -r requirements.txt --user
    ```
 
 2. **Environment variables not loaded**
@@ -257,7 +257,7 @@ Check the console output for detailed error messages.
 To upgrade dependencies:
 
 ```bash
-pip install --upgrade -r requirements.txt
+pip install --upgrade -r requirements.txt --user
 ```
 
 ## 🤝 Contributing
