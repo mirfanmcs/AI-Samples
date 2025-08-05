@@ -1,0 +1,110 @@
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  question:
+    type: string
+    description: The user's travel question
+  answer:
+    type: string
+    description: The chat bot's response to evaluate
+  ground_truth:
+    type: string
+    description: Expected answer or key points (optional)
+    default: ""
+outputs:
+  relevance_score:
+    type: string
+    reference: ${relevance_evaluation.output}
+  helpfulness_score:
+    type: string
+    reference: ${helpfulness_evaluation.output}
+  accuracy_score:
+    type: string
+    reference: ${accuracy_evaluation.output}
+  travel_expertise_score:
+    type: string
+    reference: ${travel_expertise_evaluation.output}
+  overall_evaluation:
+    type: string
+    reference: ${overall_summary.output}
+nodes:
+- name: relevance_evaluation
+  type: llm
+  source:
+    type: code
+    path: relevance_eval.jinja2
+  inputs:
+    deployment_name: gpt-4o
+    temperature: 0.1
+    max_tokens: 500
+    question: ${inputs.question}
+    answer: ${inputs.answer}
+  provider: AzureOpenAI
+  connection: ai-foundry-resource_aoai
+  api: chat
+  module: promptflow.tools.aoai
+- name: helpfulness_evaluation
+  type: llm
+  source:
+    type: code
+    path: helpfulness_eval.jinja2
+  inputs:
+    deployment_name: gpt-4o
+    temperature: 0.1
+    max_tokens: 500
+    question: ${inputs.question}
+    answer: ${inputs.answer}
+  provider: AzureOpenAI
+  connection: ai-foundry-resource_aoai
+  api: chat
+  module: promptflow.tools.aoai
+- name: accuracy_evaluation
+  type: llm
+  source:
+    type: code
+    path: accuracy_eval.jinja2
+  inputs:
+    deployment_name: gpt-4o
+    temperature: 0.1
+    max_tokens: 500
+    question: ${inputs.question}
+    answer: ${inputs.answer}
+    ground_truth: ${inputs.ground_truth}
+  provider: AzureOpenAI
+  connection: ai-foundry-resource_aoai
+  api: chat
+  module: promptflow.tools.aoai
+- name: travel_expertise_evaluation
+  type: llm
+  source:
+    type: code
+    path: travel_expertise_eval.jinja2
+  inputs:
+    deployment_name: gpt-4o
+    temperature: 0.1
+    max_tokens: 500
+    question: ${inputs.question}
+    answer: ${inputs.answer}
+  provider: AzureOpenAI
+  connection: ai-foundry-resource_aoai
+  api: chat
+  module: promptflow.tools.aoai
+- name: overall_summary
+  type: llm
+  source:
+    type: code
+    path: overall_summary.jinja2
+  inputs:
+    deployment_name: gpt-4o
+    temperature: 0.1
+    max_tokens: 500
+    question: ${inputs.question}
+    answer: ${inputs.answer}
+    relevance_score: ${relevance_evaluation.output}
+    helpfulness_score: ${helpfulness_evaluation.output}
+    accuracy_score: ${accuracy_evaluation.output}
+    travel_expertise_score: ${travel_expertise_evaluation.output}
+  provider: AzureOpenAI
+  connection: ai-foundry-resource_aoai
+  api: chat
+  module: promptflow.tools.aoai

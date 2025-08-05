@@ -1,0 +1,37 @@
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  chat_history:
+    type: list
+    default: []
+    is_chat_input: false
+    is_chat_history: true
+  question:
+    type: string
+    default: What is the capital of France?
+    is_chat_input: true
+    is_chat_history: false
+outputs:
+  answer:
+    type: string
+    reference: ${chat.output}
+    is_chat_output: true
+nodes:
+- name: chat
+  type: llm
+  source:
+    type: code
+    path: chat.jinja2
+  inputs:
+    deployment_name: gpt-4o
+    temperature: 0.7
+    max_tokens: 256
+    top_p: 1
+    response_format:
+      type: text
+    chat_history: ${inputs.chat_history}
+    question: ${inputs.question}
+  provider: AzureOpenAI
+  connection: ai-foundry-resource_aoai
+  api: chat
+  module: promptflow.tools.aoai

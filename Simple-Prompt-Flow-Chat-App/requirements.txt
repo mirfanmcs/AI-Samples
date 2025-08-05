@@ -1,0 +1,6 @@
+promptflow[azure]>=1.7.0
+promptflow-tools
+promptflow-devkit
+promptflow-tracing
+promptflow-azure
+keyrings.alt
