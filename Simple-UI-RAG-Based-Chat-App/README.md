@@ -1,6 +1,6 @@
-# Azure OpenAI Simple UI Based Chat Application
+# Azure OpenAI Simple UI RAG Based Chat Application
 
-A modern web-based chat interface for Azure OpenAI with real-time streaming responses. Built with Flask backend and vanilla JavaScript frontend, featuring a clean separation of concerns and responsive design.
+A modern web-based chat interface for Azure OpenAI using RAG pattern. Built with Flask backend and vanilla JavaScript frontend, featuring a clean separation of concerns and responsive design.
 
 ## 🌟 Features
 
@@ -67,8 +67,12 @@ pip install flask flask-cors openai python-dotenv
 ```
 
 ### 3. Azure Setup 
-- Create Azure Open AI resource in [https://portal.azure.com/](https://portal.azure.com/)
+- Create Azure AI Foundry Hub project in Azure AI Foundry [https://ai.azure.com/](https://ai.azure.com/)
 - Deploy `gpt-4o` model 
+- Deploy `text-embedding-ada-002` model
+- Create Azure AI Search Service
+- Upload PDFs `brochures` folder from `/rag-data` under `Data+Index` in your AI Foundry Hub project 
+- Create vector index name `brochures-index` on brochures data under `Data+Index` in your AI Foundry Hub project. Connect to AI Search service you created. 
 
 
 ### 4. Environment Configuration
@@ -76,16 +80,24 @@ pip install flask flask-cors openai python-dotenv
 Create a `.env` file in the root directory:
 
 ```env
-ENDPOINT_URL=https://your-resource.openai.azure.com/
-DEPLOYMENT_NAME=your-deployment-name
-AZURE_OPENAI_API_KEY=your-api-key
+ENDPOINT_URL=your_azure_openai_endpoint_url
+DEPLOYMENT_NAME=your_deployment_name
+AZURE_OPENAI_API_KEY=your_api_key
+EMBEDDING_MODEL=your_embedding_model
+SEARCH_ENDPOINT=your_search_endpoint
+SEARCH_KEY=your_search_api_key
+INDEX_NAME=your_index
 ```
 
-**How to get these values:**
+Replace the placeholder values with your actual Azure OpenAI credentials:
+   - `ENDPOINT_URL`: Your Azure OpenAI service endpoint (e.g., `https://your-resource.openai.azure.com/`)
+   - `DEPLOYMENT_NAME`: The name of your deployed model (e.g., `gpt-4`, `gpt-35-turbo`)
+   - `AZURE_OPENAI_API_KEY`: Your Azure OpenAI API key
+   - `EMBEDDING_MODEL`: Your_embedding model name (e.g., `text-embedding-ada-002`)
+   - `SEARCH_ENDPOINT`: Your AI Search Endpoint
+   - `SEARCH_KEY`: Your AI Search API Key
+   - `INDEX_NAME`: Your Index name
 
-1. **ENDPOINT_URL**: Go to Azure Portal → Your OpenAI Resource → Keys and Endpoint
-2. **DEPLOYMENT_NAME**: The name you gave your model deployment (e.g., "gpt-4", "gpt-35-turbo")
-3. **AZURE_OPENAI_API_KEY**: From the same Keys and Endpoint page
 
 ### 4. Run the Application
 

@@ -11,7 +11,11 @@ class ChatService:
         self.endpoint = os.getenv("ENDPOINT_URL", "")
         self.deployment = os.getenv("DEPLOYMENT_NAME", "")
         self.subscription_key = os.getenv("AZURE_OPENAI_API_KEY", "")
-        
+        self.embedding_model = os.getenv("EMBEDDING_MODEL", "")
+        self.search_endpoint = os.getenv("SEARCH_ENDPOINT", "")
+        self.search_key = os.getenv("SEARCH_KEY", "")
+        self.index_name = os.getenv("INDEX_NAME", "")
+
         # Initialize Azure OpenAI client
         self.client = AzureOpenAI(
             azure_endpoint=self.endpoint,
@@ -20,14 +24,13 @@ class ChatService:
         )
         
         # System message that stays constant
+        #self.system_message = {
+        #    {"role": "system", "content": "You are a travel assistant that provides information on travel services."}
+        #}
+
         self.system_message = {
             "role": "system",
-            "content": [
-                {
-                    "type": "text",
-                    "text": "You are a travel assistant that provides information on travel services."
-                }
-            ]
+            "content": "You are a travel assistant that provides information on travel services."            
         }
     
     def create_chat_prompt(self, conversation_history):
@@ -43,11 +46,36 @@ class ChatService:
         Stream chat response from Azure OpenAI
         """
         try:
+            # Additional parameters to apply RAG pattern using the AI Search index
+            rag_params = {
+                "data_sources": [
+                    {
+                        # he following params are used to search the index
+                        "type": "azure_search",
+                        "parameters": {
+                        "endpoint": self.search_endpoint,
+                        "index_name": self.index_name,
+                        "authentication": {
+                            "type": "api_key",
+                            "key": self.search_key,
+                        },
+                        # The following params are used to vectorize the query
+                        "query_type": "vector",
+                        "embedding_dependency": {
+                            "type": "deployment_name",
+                            "deployment_name": self.embedding_model,
+                        },
+                    }
+                    }
+                ],
+            }
+
             messages = self.create_chat_prompt(conversation_history)
             
             response = self.client.chat.completions.create(
                 model=self.deployment,
                 messages=messages,
+                extra_body=rag_params,
                 max_tokens=800,
                 temperature=0.7,
                 top_p=0.95,
@@ -71,12 +99,7 @@ class ChatService:
         """
         return {
             "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": user_input
-                }
-            ]
+            "content": user_input
         }
     
     def format_assistant_message(self, assistant_response):
@@ -85,12 +108,7 @@ class ChatService:
         """
         return {
             "role": "assistant",
-            "content": [
-                {
-                    "type": "text",
-                    "text": assistant_response
-                }
-            ]
+            "content": assistant_response
         }
     
     def close(self):

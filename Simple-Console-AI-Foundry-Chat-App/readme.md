@@ -31,7 +31,12 @@ Install the required Python packages:
 pip install -r requirements.txt --user
 ```
 
-### 3. Azure Authentication
+### 3. Azure Setup 
+- Create Azure AI Foundry project in Azure AI Foundry [https://ai.azure.com/](https://ai.azure.com/)
+- Deploy `gpt-4o` model
+
+
+### 4. Azure Authentication
 
 This application uses Microsoft Entra ID authentication through Azure CLI. You need to sign in to Azure:
 
@@ -41,7 +46,8 @@ az login
 
 Make sure you're logged in with an account that has access to your Azure AI Foundry project.
 
-### 4. Configure Environment Variables
+
+### 5. Configure Environment Variables
 
 Create a `.env` file in the project root directory with the following variables:
 

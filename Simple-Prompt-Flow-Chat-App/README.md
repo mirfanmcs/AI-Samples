@@ -182,6 +182,10 @@ pip list | grep promptflow
 3. Type "Python: Select Interpreter"
 4. Choose the conda environment: `~/miniconda3/envs/pf/bin/python` (or similar path)
 
+## Azure Setup 
+- Create Azure AI Foundry Hub project in Azure AI Foundry [https://ai.azure.com/](https://ai.azure.com/)
+- Deploy `gpt-4o` model 
+
 
 ## 🚀 Local Setup and Development
 
@@ -221,7 +225,7 @@ pf config set cloud.workspace_name="your-ai-studio-project"
 pf config show
 ```
 
-#### 1.3 Create Azure OpenAI Connection
+#### 1.3 Create Azure AI Foundry Connection
 
 **Option A: Using PromptFlow CLI**
 ```bash

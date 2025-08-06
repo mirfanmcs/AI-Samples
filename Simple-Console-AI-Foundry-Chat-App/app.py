@@ -31,7 +31,7 @@ chat_prompt = [
         "content": [
             {
                 "type": "text",
-                "text": "You are an AI assistant that helps people find information."
+                "text": "You are a travel assistant that provides information on travel services."
             }
         ]
     }
@@ -47,7 +47,7 @@ while True:
         print("Please enter a prompt.")
         continue
             
-    # Get a chat completion
+    # Add user input message to the prompt
     chat_prompt.append(
         {
             "role": "user",
