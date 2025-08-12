@@ -22,10 +22,13 @@ A simple Python console application that demonstrates how to interact with Azure
 ### 🌐📚 Azure OpenAI Simple UI RAG Based Chat Application
 A modern web-based chat interface for Azure OpenAI using RAG pattern. Built with Flask backend and vanilla JavaScript frontend with clean separation of concerns.
 
+### 🤖 Simple Azure AI Foundry Agent Application
+A simple console-based AI Agent application that uses Azure AI Foundry agent service through the Azure AI Foundry Python SDK.
+
+
 ## Quick Start
 
-### 🤖 Azure AI Foundry Agent Application
-A simple console-based AI Agent application that uses Azure AI Foundry agent service through the Azure AI Foundry Python SDK.
+
 
 1. Choose a project based on your needs
 2. Navigate to the project folder

@@ -1,4 +1,4 @@
-# Azure AI Foundry Agent Application
+# Simple Azure AI Foundry Agent Application
 
 A simple console-based AI Agent application that uses Azure AI Foundry agent service through the Azure AI Foundry Python SDK.
 
