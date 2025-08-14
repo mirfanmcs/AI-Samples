@@ -1,14 +1,22 @@
-# Azure AI Foundry Simple Console Chat Application
+# Azure AI Foundry Agent Application Using Custom Tools
 
-A simple console-based chat application that uses Azure AI Foundry (formerly Azure AI Studio) to interact with OpenAI models through the Azure AI Foundry Python SDK.
+A console-based AI Agent application that uses Azure AI Foundry agent service and custom function as a custom tools through the Azure AI Foundry Python SDK.
 
 ## Overview
 
 This application demonstrates how to:
-- Connect to Azure AI Foundry using Microsoft Entra ID authentication
-- Use the Azure AI Projects SDK to get an OpenAI client
-- Create a streaming chat interface in the console
-- Maintain conversation history throughout the session
+- Connect to the AI Foundry project for your agent, using the project endpoint and Entra ID authentication.
+- Get a reference to an existing agent that you created in the Azure AI Foundry portal, or create a new one specifying:
+   - The model deployment in the project that the agent should use to interpret and respond to prompts.
+   - Instructions that determine the functionality and behavior of the agent.
+   - Tools and resources that the agent can use to perform tasks.
+- Use the custom function in the agent
+- Custom function will take `email_address` and `description` as input and create the text file in the app folder. You can extend this functionality to create ticket in your ITSM system. Or you can direclty use OpenAPI spec as a custom tool to create ticket in your ITSM.
+- Create a thread for a chat session with the agent. All conversations with an agent are conducted on a stateful thread that retains message history and data artifacts generated during the chat.
+- Add messages to the thread and invoke it with the agent.
+- Check the thread status, and when ready, retrieve the messages and data artifacts.
+- Repeat the previous two steps as a chat loop until the conversation can be concluded.
+- When finished, delete the agent and the thread to clean up the resources and delete data that is no longer required.
 
 ## Prerequisites
 
@@ -80,18 +88,16 @@ MODEL_DEPLOYMENT=your-model-deployment-name
 
 5. Type `quit` to exit the application.
 
-## Features
+6. Use these prompts:
+`I have a technical problem`
+View the response. The agent may ask for your email address and a description of the issue.
+The tool should have saved support tickets in the app folder.
 
-- **Streaming responses**: See the AI response being generated in real-time
-- **Conversation history**: The app maintains context throughout the session
-- **Simple interface**: Clean console-based interaction
-- **Secure authentication**: Uses Azure CLI authentication (no API keys stored in code)
 
 ## Dependencies
 
 - `azure-ai-projects`: Azure AI Projects SDK for connecting to Azure AI Foundry
 - `azure-identity`: Azure authentication library
-- `openai`: OpenAI Python SDK (used internally by azure-ai-projects)
 - `python-dotenv`: For loading environment variables from .env file
 
 ## Troubleshooting
@@ -124,6 +130,7 @@ Simple-Console-AI-Foundry-Chat-App/
 ├── requirements.txt    # Python dependencies
 ├── readme.md          # This file
 ├── install.sh         # Installation script (if applicable)
+├── user_functions.py    # custom function
 └── .env               # Environment variables (create this file)
 ```
 

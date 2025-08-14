@@ -1,4 +1,4 @@
-# Simple Prompt Flow Chat App
+# Prompt Flow Chat App
 
 A comprehensive travel chat application built with Microsoft PromptFlow, featuring an intelligent chat bot and automated evaluation system. This project demonstrates end-to-end AI application development with Azure OpenAI integration, conversation memory, and quality assessment capabilities.
 

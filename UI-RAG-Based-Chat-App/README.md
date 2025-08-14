@@ -1,4 +1,4 @@
-# Azure OpenAI Simple UI RAG Based Chat Application
+# Azure OpenAI UI RAG Based Chat Application
 
 A modern web-based chat interface for Azure OpenAI using RAG pattern. Built with Flask backend and vanilla JavaScript frontend, featuring a clean separation of concerns and responsive design.
 

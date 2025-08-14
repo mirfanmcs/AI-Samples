@@ -1,6 +1,6 @@
-# Simple Azure AI Foundry Agent Application Using Custom Tools
+# Azure AI Foundry Agent Application
 
-A simple console-based AI Agent application that uses Azure AI Foundry agent service and custom function as a custom tools through the Azure AI Foundry Python SDK.
+A console-based AI Agent application that uses Azure AI Foundry agent service through the Azure AI Foundry Python SDK.
 
 ## Overview
 
@@ -10,8 +10,8 @@ This application demonstrates how to:
    - The model deployment in the project that the agent should use to interpret and respond to prompts.
    - Instructions that determine the functionality and behavior of the agent.
    - Tools and resources that the agent can use to perform tasks.
-- Use the custom function in the agent
-- Custom function will take `email_address` and `description` as input and create the text file in the app folder. You can extend this functionality to create ticket in your ITSM system. Or you can direclty use OpenAPI spec as a custom tool to create ticket in your ITSM.
+- Use the data.txt as grounded data for Knowledge
+- Use empty CodeInterpreterTool
 - Create a thread for a chat session with the agent. All conversations with an agent are conducted on a stateful thread that retains message history and data artifacts generated during the chat.
 - Add messages to the thread and invoke it with the agent.
 - Check the thread status, and when ready, retrieve the messages and data artifacts.
@@ -89,9 +89,11 @@ MODEL_DEPLOYMENT=your-model-deployment-name
 5. Type `quit` to exit the application.
 
 6. Use these prompts:
-`I have a technical problem`
-View the response. The agent may ask for your email address and a description of the issue.
-The tool should have saved support tickets in the app folder.
+`What's the category with the highest cost?`
+View the response. Then enter another prompt, this time requesting a visualization:
+`Create a text-based bar chart showing cost by category`
+View the response. Then enter another prompt, this time requesting a statistical metric:
+`What's the standard deviation of cost?`
 
 
 ## Dependencies
@@ -130,7 +132,7 @@ Simple-Console-AI-Foundry-Chat-App/
 ├── requirements.txt    # Python dependencies
 ├── readme.md          # This file
 ├── install.sh         # Installation script (if applicable)
-├── user_functions.py    # custom function
+├── data.txt         # Sample data file
 └── .env               # Environment variables (create this file)
 ```
 

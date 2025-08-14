@@ -1,22 +1,14 @@
-# Simple Azure AI Foundry Agent Application
+# Azure AI Foundry Console Chat Application
 
-A simple console-based AI Agent application that uses Azure AI Foundry agent service through the Azure AI Foundry Python SDK.
+A console-based chat application that uses Azure AI Foundry (formerly Azure AI Studio) to interact with OpenAI models through the Azure AI Foundry Python SDK.
 
 ## Overview
 
 This application demonstrates how to:
-- Connect to the AI Foundry project for your agent, using the project endpoint and Entra ID authentication.
-- Get a reference to an existing agent that you created in the Azure AI Foundry portal, or create a new one specifying:
-   - The model deployment in the project that the agent should use to interpret and respond to prompts.
-   - Instructions that determine the functionality and behavior of the agent.
-   - Tools and resources that the agent can use to perform tasks.
-- Use the data.txt as grounded data for Knowledge
-- Use empty CodeInterpreterTool
-- Create a thread for a chat session with the agent. All conversations with an agent are conducted on a stateful thread that retains message history and data artifacts generated during the chat.
-- Add messages to the thread and invoke it with the agent.
-- Check the thread status, and when ready, retrieve the messages and data artifacts.
-- Repeat the previous two steps as a chat loop until the conversation can be concluded.
-- When finished, delete the agent and the thread to clean up the resources and delete data that is no longer required.
+- Connect to Azure AI Foundry using Microsoft Entra ID authentication
+- Use the Azure AI Projects SDK to get an OpenAI client
+- Create a streaming chat interface in the console
+- Maintain conversation history throughout the session
 
 ## Prerequisites
 
@@ -88,18 +80,18 @@ MODEL_DEPLOYMENT=your-model-deployment-name
 
 5. Type `quit` to exit the application.
 
-6. Use these prompts:
-`What's the category with the highest cost?`
-View the response. Then enter another prompt, this time requesting a visualization:
-`Create a text-based bar chart showing cost by category`
-View the response. Then enter another prompt, this time requesting a statistical metric:
-`What's the standard deviation of cost?`
+## Features
 
+- **Streaming responses**: See the AI response being generated in real-time
+- **Conversation history**: The app maintains context throughout the session
+- **Simple interface**: Clean console-based interaction
+- **Secure authentication**: Uses Azure CLI authentication (no API keys stored in code)
 
 ## Dependencies
 
 - `azure-ai-projects`: Azure AI Projects SDK for connecting to Azure AI Foundry
 - `azure-identity`: Azure authentication library
+- `openai`: OpenAI Python SDK (used internally by azure-ai-projects)
 - `python-dotenv`: For loading environment variables from .env file
 
 ## Troubleshooting
@@ -132,7 +124,6 @@ Simple-Console-AI-Foundry-Chat-App/
 ├── requirements.txt    # Python dependencies
 ├── readme.md          # This file
 ├── install.sh         # Installation script (if applicable)
-├── data.txt         # Sample data file
 └── .env               # Environment variables (create this file)
 ```
 

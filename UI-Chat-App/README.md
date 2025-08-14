@@ -1,4 +1,4 @@
-# Azure OpenAI Simple UI Based Chat Application
+# Azure OpenAI UI Based Chat Application
 
 A modern web-based chat interface for Azure OpenAI with real-time streaming responses. Built with Flask backend and vanilla JavaScript frontend, featuring a clean separation of concerns and responsive design.
 
