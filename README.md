@@ -31,6 +31,9 @@ A console-based AI Agent application that uses Azure AI Foundry agent service an
 ### 🤖 Azure AI Foundry Multi Agent Application
 A console-based AI Multi Agent application that uses Azure AI Foundry agent service through the Azure AI Foundry Python SDK.
 
+### 🖧 Azure AI Foundry Agent Application Using MCP
+A console-based AI Agent application that uses Azure AI Foundry agent service and MCP through the Azure AI Foundry Python SDK.
+
 
 ## Quick Start
 
