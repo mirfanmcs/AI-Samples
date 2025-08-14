@@ -1,18 +1,18 @@
-# Azure AI Foundry Agent Application
+# Azure AI Foundry Multi Agent Application
 
-A console-based AI Agent application that uses Azure AI Foundry agent service through the Azure AI Foundry Python SDK.
+A console-based AI Multi Agent application that uses Azure AI Foundry agent service through the Azure AI Foundry Python SDK.
 
 ## Overview
 
 This application demonstrates how to:
 - Connect to the AI Foundry project for your agent, using the project endpoint and Entra ID authentication.
 - Deploy the model your agent will use.
-- Create the agent if it doens't exists by specifiying
-   - The model deployment in the project that the agent should use to interpret and respond to prompts.
-   - Instructions that determine the functionality and behavior of the agent.
-   - Code CodeInterpreterTool as a Custom Tool which uses data.txt file.
-- Use the data.txt as grounded data for Knowledge
-- Use empty CodeInterpreterTool
+- Create following agents if it doesn't exists:
+   - Priority agent: This agent sets the priority level of each ticket.
+   - Team agent: This agent decides which team should own each ticket.
+   - Effort agent: This agent estimates the effort required to complete each ticket.
+   - Main agent: This is the primary / main agent which will use natural language to orchestrate call to different agents
+- Note that this code uses the same deployment model and without any Custom Tool for agents. You can use Custom Tool and differnet model for each of the agent as per requirements.
 - Create a thread for a chat session with the agent. All conversations with an agent are conducted on a stateful thread that retains message history and data artifacts generated during the chat.
 - Add messages to the thread and invoke it with the agent.
 - Check the thread status, and when ready, retrieve the messages and data artifacts.
@@ -90,11 +90,7 @@ MODEL_DEPLOYMENT=your-model-deployment-name
 5. Type `quit` to exit the application.
 
 6. Use these prompts:
-`What's the category with the highest cost?`
-View the response. Then enter another prompt, this time requesting a visualization:
-`Create a text-based bar chart showing cost by category`
-View the response. Then enter another prompt, this time requesting a statistical metric:
-`What's the standard deviation of cost?`
+`Users can't reset their password from the mobile app.`
 
 
 ## Dependencies
@@ -133,7 +129,10 @@ Simple-Console-AI-Foundry-Chat-App/
 ├── requirements.txt    # Python dependencies
 ├── readme.md          # This file
 ├── install.sh         # Installation script (if applicable)
-├── data.txt         # Sample data file
+├── Agents/                    # Agents
+│   ├── effort_agent.py            # Effort agent definition
+│   ├── priority_agent.py          # Priority agent definition
+│   ├── team_agent.py              # team agent definition
 └── .env               # Environment variables (create this file)
 ```
 

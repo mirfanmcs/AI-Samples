@@ -28,6 +28,9 @@ A console-based AI Agent application that uses Azure AI Foundry agent service th
 ### 🛠️ Azure AI Foundry Agent Application Using Custom Tools
 A console-based AI Agent application that uses Azure AI Foundry agent service and custom function as a custom tools through the Azure AI Foundry Python SDK.
 
+### 🤖 Azure AI Foundry Multi Agent Application
+A console-based AI Multi Agent application that uses Azure AI Foundry agent service through the Azure AI Foundry Python SDK.
+
 
 ## Quick Start
 

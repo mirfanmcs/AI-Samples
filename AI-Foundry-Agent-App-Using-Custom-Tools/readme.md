@@ -6,11 +6,11 @@ A console-based AI Agent application that uses Azure AI Foundry agent service an
 
 This application demonstrates how to:
 - Connect to the AI Foundry project for your agent, using the project endpoint and Entra ID authentication.
-- Get a reference to an existing agent that you created in the Azure AI Foundry portal, or create a new one specifying:
+- Deploy the model your agent will use.
+- Create the agent if it doens't exists by specifiying
    - The model deployment in the project that the agent should use to interpret and respond to prompts.
    - Instructions that determine the functionality and behavior of the agent.
-   - Tools and resources that the agent can use to perform tasks.
-- Use the custom function in the agent
+   - Custom function as a Custom Tool the agent can use to perform tasks.
 - Custom function will take `email_address` and `description` as input and create the text file in the app folder. You can extend this functionality to create ticket in your ITSM system. Or you can direclty use OpenAPI spec as a custom tool to create ticket in your ITSM.
 - Create a thread for a chat session with the agent. All conversations with an agent are conducted on a stateful thread that retains message history and data artifacts generated during the chat.
 - Add messages to the thread and invoke it with the agent.
