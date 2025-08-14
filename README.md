@@ -25,6 +25,9 @@ A modern web-based chat interface for Azure OpenAI using RAG pattern. Built with
 ### 🤖 Simple Azure AI Foundry Agent Application
 A simple console-based AI Agent application that uses Azure AI Foundry agent service through the Azure AI Foundry Python SDK.
 
+### 🛠️ Simple Azure AI Foundry Agent Application Using Custom Tools
+A simple console-based AI Agent application that uses Azure AI Foundry agent service and custom function as a custom tools through the Azure AI Foundry Python SDK.
+
 
 ## Quick Start
 
