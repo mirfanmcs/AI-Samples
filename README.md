@@ -1,6 +1,6 @@
 # Azure AI Samples
 
-A collection of Azure OpenAI chat applications demonstrating different implementation approaches.
+A collection of AI sample applications demonstrating different implementation approaches.
 
 ## Generative-AI
 
