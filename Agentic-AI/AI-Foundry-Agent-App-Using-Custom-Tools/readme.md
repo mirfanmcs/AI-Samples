@@ -1,6 +1,6 @@
 # Azure AI Foundry Agent Application Using Custom Tools
 
-A console-based AI Agent application that uses Azure AI Foundry agent service and custom function as a custom tools through the Azure AI Foundry Python SDK.
+AI Agent application that uses Azure AI Foundry agent service and custom function as a custom tools through the Azure AI Foundry Python SDK.
 
 ## Overview
 
@@ -125,7 +125,7 @@ If you encounter package import errors:
 ## Project Structure
 
 ```
-Simple-Console-AI-Foundry-Chat-App/
+AI-Foundry-Agent-App-Using-Custom-Tools/
 ├── app.py              # Main application file
 ├── requirements.txt    # Python dependencies
 ├── readme.md          # This file

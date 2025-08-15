@@ -1,23 +1,21 @@
-# Azure AI Foundry Agent Application Using MCP
+# Azure AI Foundry Multi Agent Application
 
-A console-based AI Agent application that uses Azure AI Foundry agent service and MCP through the Azure AI Foundry Python SDK.
+AI Multi Agent application that uses Azure AI Foundry agent service through the Azure AI Foundry Python SDK.
 
 ## Overview
 
 This application demonstrates how to:
 - Connect to the AI Foundry project for your agent, using the project endpoint and Entra ID authentication.
 - Deploy the model your agent will use.
-- Use MCP Server URL `https://learn.microsoft.com/api/mcp` and Server Label `mslearn`
-- User `McpTool` to connect to MCP server
-- Create the agent if it doens't exists by specifiying
-   - The model deployment in the project that the agent should use to interpret and respond to prompts.
-   - Instructions that determine the functionality and behavior of the agent.
-- Pass `McpTool` as `ToolSet` during agent run. This gives flexibility to use different MCP Server as needed.
-- Agenet will invoke MCP tool `microsoft_docs_search` automatically to fulfill the request.
+- Create following agents if it doesn't exists:
+   - Priority agent: This agent sets the priority level of each ticket.
+   - Team agent: This agent decides which team should own each ticket.
+   - Effort agent: This agent estimates the effort required to complete each ticket.
+   - Main agent: This is the primary / main agent which will use natural language to orchestrate call to different agents
+- Note that this code uses the same deployment model and without any Custom Tool for agents. You can use Custom Tool and differnet model for each of the agent as per requirements.
 - Create a thread for a chat session with the agent. All conversations with an agent are conducted on a stateful thread that retains message history and data artifacts generated during the chat.
 - Add messages to the thread and invoke it with the agent.
 - Check the thread status, and when ready, retrieve the messages and data artifacts.
-- - Print run steps.
 - Repeat the previous two steps as a chat loop until the conversation can be concluded.
 - When finished, delete the agent and the thread to clean up the resources and delete data that is no longer required.
 
@@ -92,8 +90,7 @@ MODEL_DEPLOYMENT=your-model-deployment-name
 5. Type `quit` to exit the application.
 
 6. Use these prompts:
-`Give me the Azure CLI commands to create an Azure Container App with a managed identity.`
-
+`Users can't reset their password from the mobile app.`
 
 
 ## Dependencies
@@ -101,8 +98,6 @@ MODEL_DEPLOYMENT=your-model-deployment-name
 - `azure-ai-projects`: Azure AI Projects SDK for connecting to Azure AI Foundry
 - `azure-identity`: Azure authentication library
 - `python-dotenv`: For loading environment variables from .env file
-- `azure-ai-agents`: For AI Agents
-
 
 ## Troubleshooting
 
@@ -129,12 +124,15 @@ If you encounter package import errors:
 ## Project Structure
 
 ```
-Simple-Console-AI-Foundry-Chat-App/
+AI-Foundry-Multi-Agent-App/
 ├── app.py              # Main application file
 ├── requirements.txt    # Python dependencies
 ├── readme.md          # This file
 ├── install.sh         # Installation script (if applicable)
-├── data.txt         # Sample data file
+├── Agents/                    # Agents
+│   ├── effort_agent.py            # Effort agent definition
+│   ├── priority_agent.py          # Priority agent definition
+│   ├── team_agent.py              # team agent definition
 └── .env               # Environment variables (create this file)
 ```
 

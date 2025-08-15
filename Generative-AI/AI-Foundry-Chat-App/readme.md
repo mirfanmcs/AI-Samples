@@ -1,6 +1,6 @@
-# Azure AI Foundry Console Chat Application
+# Azure AI Foundry Chat Application
 
-A console-based chat application that uses Azure AI Foundry (formerly Azure AI Studio) to interact with OpenAI models through the Azure AI Foundry Python SDK.
+A chat application that uses Azure AI Foundry (formerly Azure AI Studio) to interact with OpenAI models through the Azure AI Foundry Python SDK.
 
 ## Overview
 
@@ -119,7 +119,7 @@ If you encounter package import errors:
 ## Project Structure
 
 ```
-Simple-Console-AI-Foundry-Chat-App/
+AI-Foundry-Chat-App/
 ├── app.py              # Main application file
 ├── requirements.txt    # Python dependencies
 ├── readme.md          # This file

@@ -27,6 +27,7 @@ A modern web-based chat interface for Azure OpenAI using RAG pattern. Built with
 ├── app.py                      # Flask application (main entry point)
 ├── requirements.txt            # Python dependencies
 ├── install.sh                  # Installation script
+├── rag-data/*                  # grounding data contian PDF brochures
 └── README.md                   # This file
 ```
 

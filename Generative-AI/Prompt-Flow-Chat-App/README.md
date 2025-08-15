@@ -41,7 +41,7 @@ A sophisticated evaluation system that automatically assesses chat bot responses
 ## 🏗️ Project Structure
 
 ```
-Simple-Prompt-Flow-Chat-App/
+Prompt-Flow-Chat-App/
 ├── chat-flow/                    # Main travel chat bot application
 │   ├── flow.dag.yaml            # PromptFlow configuration
 │   ├── chat.jinja2              # Travel agent prompt template

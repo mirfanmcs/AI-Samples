@@ -1,6 +1,6 @@
-# Azure OpenAI Console Chat Application
+# Azure OpenAI RAG Based Chat Application
 
-A Python console application that demonstrates how to interact with Azure OpenAI's chat completion API with streaming responses. This application provides a command-line interface for having conversations with an AI assistant.
+A Python application that demonstrates how to interact with Azure OpenAI's chat completion API using RAG pattern. This application provides a command-line interface for having conversations with an AI assistant.
 
 ## Features
 
@@ -45,8 +45,12 @@ pip install -r requirements.txt --user
 ```
 
 ## Azure Setup 
-- Create Azure Open AI resource in [https://portal.azure.com/](https://portal.azure.com/)
+- Create Azure AI Foundry Hub project in Azure AI Foundry [https://ai.azure.com/](https://ai.azure.com/)
 - Deploy `gpt-4o` model 
+- Deploy `text-embedding-ada-002` model
+- Create Azure AI Search Service
+- Upload PDFs `brochures` folder from `/rag-data` under `Data+Index` in your AI Foundry Hub project 
+- Create vector index name `brochures-index` on brochures data under `Data+Index` in your AI Foundry Hub project. Connect to AI Search service you created. 
 
 
 ## Configuration
@@ -57,12 +61,20 @@ pip install -r requirements.txt --user
 ENDPOINT_URL=your_azure_openai_endpoint_url
 DEPLOYMENT_NAME=your_deployment_name
 AZURE_OPENAI_API_KEY=your_api_key
+EMBEDDING_MODEL=your_embedding_model
+SEARCH_ENDPOINT=your_search_endpoint
+SEARCH_KEY=your_search_api_key
+INDEX_NAME=your_index
 ```
 
 2. Replace the placeholder values with your actual Azure OpenAI credentials:
    - `ENDPOINT_URL`: Your Azure OpenAI service endpoint (e.g., `https://your-resource.openai.azure.com/`)
    - `DEPLOYMENT_NAME`: The name of your deployed model (e.g., `gpt-4`, `gpt-35-turbo`)
    - `AZURE_OPENAI_API_KEY`: Your Azure OpenAI API key
+   - `EMBEDDING_MODEL`: Your_embedding model name (e.g., `text-embedding-ada-002`)
+   - `SEARCH_ENDPOINT`: Your AI Search Endpoint
+   - `SEARCH_KEY`: Your AI Search API Key
+   - `INDEX_NAME`: Your Index name
 
 ## Usage
 
@@ -104,11 +116,12 @@ Enter the prompt (or type 'quit' to exit): quit
 ## Project Structure
 
 ```
-Simple-Console-Chat-App/
+RAG-Based-Chat-App/
 ├── app.py              # Main application file
 ├── requirements.txt    # Python dependencies
 ├── install.sh         # Installation script for Linux/macOS
 ├── readme.md          # This file
+├── rag-data/*         # grounding data contian PDF brochures
 └── .env               # Environment variables (create this file)
 ```
 
