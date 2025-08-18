@@ -36,6 +36,9 @@ AI Multi Agent application that uses Azure AI Foundry agent service through the 
 ### 🖧 Azure AI Foundry Agent Application Using MCP
 AI Agent application that uses Azure AI Foundry agent service and MCP through the Azure AI Foundry Python SDK.
 
+### 🧠 Semantic Kernel Agent Application
+Semantic Kernel Agent application that uses the `AzureAIAgent` class to build and interact with AI agents using the Azure AI Foundry Agent Service.
+
 
 ## Quick Start
 
