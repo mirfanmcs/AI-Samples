@@ -127,7 +127,7 @@ If you encounter package import errors:
 ## Project Structure
 
 ```
-Semantic Kernel-Agent-App/
+Semantic-Kernel-Agent-App/
 ├── app.py              # Main application file
 ├── plugins/                    # Semantic Kernel plugins
 │   ├── email_plugin.py         # Email plugin
