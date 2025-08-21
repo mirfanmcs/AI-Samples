@@ -42,6 +42,11 @@ Semantic Kernel Agent application that uses the `AzureAIAgent` class to build an
 ### 🧠 Semantic Kernel Multi Agent Application
 Demonstrates multi-agent orchestration using Azure AI Foundry Python SDK and Semantic Kernel. Automates incident management and DevOps actions by coordinating specialized agents and custom plugins for log analysis and DevOps tasks.
 
+## Natural-Language
+
+### 📝 Text Analysis
+A sample application that uses Azure AI Foundry Language Service for Text Analysis. It analyzes text files for language detection, sentiment analysis, key phrases extraction, detect entities, and linked entities.
+
 
 ## Quick Start
 
