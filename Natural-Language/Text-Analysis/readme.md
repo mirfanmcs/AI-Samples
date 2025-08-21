@@ -49,7 +49,7 @@ pip install -r requirements.txt --user
 Create a `.env` file in the project root directory with the following variables:
 
 ```env
-# AI Foundry Project Endpoint
+# AI Foundry Language Service Endpoint
 LANGUAGE_SERVICE_ENDPOINT=https://your-language-service-name.cognitiveservices.azure.com/
 LANGUAGE_SERVICE_KEY=your-language-service-key
 ```
