@@ -47,6 +47,9 @@ Demonstrates multi-agent orchestration using Azure AI Foundry Python SDK and Sem
 ### 📝 Text Analysis
 A sample application that uses Azure AI Foundry Language Service for Text Analysis. It analyzes text files for language detection, sentiment analysis, key phrases extraction, detect entities, and linked entities.
 
+### ❓ Question Answer
+A sample application that uses Azure AI Foundry Language Service for Question Answering. It answers questions on user input.
+
 
 ## Quick Start
 

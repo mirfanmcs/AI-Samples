@@ -23,8 +23,7 @@ This application performs the following tasks:
 
 - Python 3.8 or higher
 - Azure subscription with access to Azure AI Foundry
-- Azure CLI installed and configured
-- An Azure AI Foundry project with a deployed OpenAI model
+- An Azure AI Language service
 
 ## Setup Instructions
 
@@ -56,8 +55,8 @@ LANGUAGE_SERVICE_KEY=your-language-service-key
 
 **How to find these values:**
 
-- **LANGUAGE_SERVICE_ENDPOINT**: In Azure AI Foundry, go to your Resource Management → Keys and Endpoint → find the "Endpoint"
-- **LANGUAGE_SERVICE_KEY**: In Azure AI Foundry, go to your Resource Management → Keys and Endpoint → find the "KEY 1"
+- **LANGUAGE_SERVICE_ENDPOINT**: In Azure portal, go to your Language Service you created → Keys and Endpoint → find the "Endpoint"
+- **LANGUAGE_SERVICE_KEY**: In Azure portal, go to your Language Service you created → Keys and Endpoint → find the "KEY 1"
 
 ## Running the Application
 
@@ -88,7 +87,7 @@ If you get authentication errors:
 
 If you encounter package import errors:
 1. Make sure all dependencies are installed: `pip install -r requirements.txt --user`
-2. Try upgrading packages: `pip install --upgrade azure-ai-projects azure-identity azure-ai-textanalytics`
+2. Try upgrading packages: `pip install --upgrade azure-identity azure-ai-textanalytics`
 
 ## Project Structure
 
@@ -96,8 +95,7 @@ If you encounter package import errors:
 Text-Analysis/
 ├── app.py              # Main application file
 ├── requirements.txt    # Python dependencies
-├── readme.md           # Original readme
-├── readme2.md          # This file
+├── readme.md          # This file
 ├── install.sh          # Installation script
 └── reviews/            # Folder containing text files to analyze
 ```
