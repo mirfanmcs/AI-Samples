@@ -16,9 +16,6 @@ def main():
     qa_project_name = os.getenv('QA_PROJECT_NAME')
     qa_deployment_name = os.getenv('QA_DEPLOYMENT_NAME')
 
-    # Create client using endpoint and key
-
-
 
     # Create client using endpoint and key
     credential = AzureKeyCredential(ai_key)

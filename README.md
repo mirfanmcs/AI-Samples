@@ -50,6 +50,9 @@ A sample application that uses Azure AI Foundry Language Service for Text Analys
 ### ❓ Question Answer
 A sample application that uses Azure AI Foundry Language Service for Question Answering. It answers questions on user input.
 
+### 💬 Conversational Language Understanding
+A sample application that uses Azure AI Foundry Language Service for conversational language understanding. It uses Conversation Analysis API to detect intent and extract entities.
+
 
 ## Quick Start
 
