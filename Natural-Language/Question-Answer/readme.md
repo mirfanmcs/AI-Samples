@@ -34,7 +34,7 @@ pip install -r requirements.txt --user
 ```
 
 ### 3. Azure Setup 
-- Create Azure AI Foundry Language Service in Azure Portal [https://portal.azure.com/](https://portal.azure.com/)
+- Create Azure AI Foundry Language Service in Azure Portal [https://portal.azure.com/](https://portal.azure.com/) and select `Custom question answering` under Custom features
 - Create `Custom question answering` project in Language Studio portal [https://language.cognitive.azure.com/](https://language.cognitive.azure.com/)
 - Open the project you created and add folloiwng data sources in the language project you created
   - URL `https://docs.microsoft.com/en-us/learn/support/faq`
