@@ -1,4 +1,4 @@
-# Custom Named Entity Recognitionr
+# Custom Named Entity Recognition
 
 A sample application that uses Azure AI Foundry Language Service for custom named entity recognition. It reads ads and extract entities using Azure Text Analytics.
 
