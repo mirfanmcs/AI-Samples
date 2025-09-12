@@ -53,8 +53,11 @@ A sample application that uses Azure AI Foundry Language Service for Question An
 ### 💬 Conversational Language Understanding
 A sample application that uses Azure AI Foundry Language Service for conversational language understanding. It uses Conversation Analysis API to detect intent and extract entities.
 
-### 🏷️ Text Classification
+### 🏷️ Custom-Text-Classification
 A sample application that uses Azure AI Foundry Language Service for text classification. It reads articles and classifies their content using Azure Text Analytics.
+
+### 🔍 Custom Named Entity Recognition
+A sample application that uses Azure AI Foundry Language Service for custom named entity recognition. It reads ads and extracts entities using Azure Text Analytics.
 
 
 ## Quick Start

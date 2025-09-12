@@ -1,4 +1,4 @@
-# Question Answer
+# Custom-Text-Classification
 
 A sample application that uses Azure AI Foundry Language Service for text classification. It reads articles and classifies their content using Azure Text Analytics.
 
@@ -44,7 +44,7 @@ pip install -r requirements.txt --user
 - Open the project in Language Studio, in Activity pane under Data Labeling add `Classifieds`, `Sports`, `News`, and `Entertainment` classes.
 - Select each of the document and assign class and dataset to each of the document as: Article 1 (class: Sports, Dataset: Training), Article 2 (class: Sports, Dataset: Training), Article 3 (class: Classifieds, Dataset: Training), Article 4 (class: Classifieds, Dataset: Training), Article 5 (class: Entertainment, Dataset: Training), Article 6 (class: Entertainment, Dataset: Training), Article 7 (class: News, Dataset: Training), Article 8 (class: News, Dataset: Training), Article 9 (class: Entertainment, Dataset: Training), Article 10 (class: News, Dataset: Training), Article 11 (class: Entertainment, Dataset: Testing), Article 12 (class: News, Dataset: Testing), Article 13 (class: Sports, Dataset: Testing).
 - Click on Start training job under Training job to jobs to train the model. Choose manual splitting option.
-- Deploy your model under Deploying model pane. Give it a name. Node down deployment name and project name.
+- Deploy your model under Deploying model pane. Give it a name. Note down deployment name and project name.
 
 
 ### 4. Configure Environment Variables
