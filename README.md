@@ -65,6 +65,9 @@ A sample application that uses Azure AI Foundry Translate Service to translate t
 ### 🗣️ Speech Enabled App
 A sample application that uses Azure AI Foundry Speech Service to enable speech in applications. It can transcribe spoken commands from audio files or microphone and synthesize speech responses.
 
+### 🎤 Translate Speech
+A sample application that uses Azure AI Foundry Speech Service for real-time speech translation. It translates spoken English into French, Spanish, and Hindi, and can synthesize translated audio output or play it live.
+
 
 ## Quick Start
 
