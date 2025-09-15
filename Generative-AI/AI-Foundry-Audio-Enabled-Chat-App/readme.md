@@ -1,6 +1,6 @@
 # Azure AI Foundry Audio Enabled Chat Application
 
-A chat application that uses Azure AI Foundry (formerly Azure AI Studio) to interact with OpenAI models through the Azure AI Foundry Python SDK. It also uses audio to send the prompt.
+A chat application that uses Azure AI Foundry (formerly Azure AI Studio) to interact with OpenAI models through the Azure AI Foundry Python SDK. It uses multimodel to send text and audio prompt.
 
 ## Overview
 
