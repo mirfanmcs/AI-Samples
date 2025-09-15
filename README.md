@@ -10,6 +10,10 @@ A Python application that demonstrates how to interact with Azure OpenAI's chat 
 ### 🌐 Azure OpenAI UI Based Chat Application  
 A modern web-based chat interface for Azure OpenAI with real-time streaming responses. Built with Flask backend and vanilla JavaScript frontend.
 
+### 🔊 Azure OpenAI Audio Enabled UI Based Chat Application
+A modern web-based chat interface for Azure OpenAI with real-time streaming responses and audio input support. Built with Flask backend and vanilla JavaScript frontend, using browser speech-to-text API to enable audio-enabled chat.
+
+
 ### ⚡ Azure AI Foundry Chat Application
 A chat application that uses Azure AI Foundry (formerly Azure AI Studio) to interact with OpenAI models through the Azure AI Foundry Python SDK.
 
@@ -25,6 +29,7 @@ A Python application that demonstrates how to interact with Azure OpenAI's chat 
 
 ### 🌐📚 Azure OpenAI UI RAG Based Chat Application
 A modern web-based chat interface for Azure OpenAI using RAG pattern. Built with Flask backend and vanilla JavaScript frontend with clean separation of concerns.
+
 
 ## Agentic-AI
 
