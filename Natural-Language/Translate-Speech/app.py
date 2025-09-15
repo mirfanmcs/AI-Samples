@@ -18,8 +18,6 @@ def main():
     speech_key = os.getenv("SPEECH_SERVICE_KEY", "")       
     
     # Configure speech service
-    #translation_config = speech_sdk.SpeechConfig(speech_key, speech_region)
-    #translation_config = speech_sdk.SpeechTranslationConfig(speech_key, speech_region)
     translation_config = speech_sdk.translation.SpeechTranslationConfig(subscription=speech_key, region=speech_region)
 
 

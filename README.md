@@ -13,6 +13,10 @@ A modern web-based chat interface for Azure OpenAI with real-time streaming resp
 ### ⚡ Azure AI Foundry Chat Application
 A chat application that uses Azure AI Foundry (formerly Azure AI Studio) to interact with OpenAI models through the Azure AI Foundry Python SDK.
 
+### 🔊 AI Foundry Audio Enabled Chat App
+A chat application that uses Azure AI Foundry (formerly Azure AI Studio) to interact with OpenAI models through the Azure AI Foundry Python SDK. It also uses audio to send the prompt.
+
+
 ### 🔄 Prompt Flow Chat App
 A comprehensive travel chat application built with Microsoft PromptFlow, featuring an intelligent chat bot and automated evaluation system with Azure OpenAI integration.
 
