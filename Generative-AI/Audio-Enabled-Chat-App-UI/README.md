@@ -1,7 +1,7 @@
 # Azure OpenAI Audio Enabled UI Based Chat Application
 
 A modern web-based chat interface for Azure OpenAI with real-time streaming responses. Built with Flask backend and vanilla JavaScript frontend, featuring a clean separation of concerns and responsive design.
-This app uses browser speech recognition API in Javascript and passes the speect to text in the chat completion. You can enable speech feature using the Azure AI Speeh to text service and pass the text in the prompt in chat completion. You can also use the multimodel (e.g Phi-4) and pass audio as a input. 
+This app uses browser speech recognition API in Javascript and passes the speech to text in the chat completion. You can enable speech feature using the Azure AI Speech to text service and pass the text in the prompt in chat completion. You can also use the multimodel (e.g Phi-4) and pass audio as a input. 
 
 
 ## 🌟 Features
