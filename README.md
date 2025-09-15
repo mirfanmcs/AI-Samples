@@ -59,6 +59,9 @@ A sample application that uses Azure AI Foundry Language Service for text classi
 ### 🔍 Custom Named Entity Recognition
 A sample application that uses Azure AI Foundry Language Service for custom named entity recognition. It reads ads and extracts entities using Azure Text Analytics.
 
+### 🌎 Translate Text
+A sample application that uses Azure AI Foundry Translate Service to translate text between languages.
+
 
 ## Quick Start
 
