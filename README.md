@@ -62,6 +62,9 @@ A sample application that uses Azure AI Foundry Language Service for custom name
 ### 🌎 Translate Text
 A sample application that uses Azure AI Foundry Translate Service to translate text between languages.
 
+### 🗣️ Speech Enabled App
+A sample application that uses Azure AI Foundry Speech Service to enable speech in applications. It can transcribe spoken commands from audio files or microphone and synthesize speech responses.
+
 
 ## Quick Start
 

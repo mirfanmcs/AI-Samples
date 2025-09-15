@@ -21,7 +21,7 @@ This application performs the following tasks:
 
 - Python 3.8 or higher
 - Azure subscription with access to Azure AI Foundry
-- An Azure AI Language Service
+- An Azure AI Translate Service
 
 ## Setup Instructions
 
@@ -46,15 +46,15 @@ pip install -r requirements.txt --user
 Create a `.env` file in the project root directory with the following variables:
 
 ```env
-# AI Foundry Language Service Endpoint
-TRANSLATE_SERVICE_REGION=your-translate-region
-LANGUAGE_SERVICE_KEY=your-translate-service-key
+# AI Foundry Translate Service Endpoint
+TRANSLATE_SERVICE_REGION=your-translate-service-region
+TRANSLATE_SERVICE_KEY=your-translate-service-key
 ```
 
 **How to find these values:**
 
 - **TRANSLATE_SERVICE_REGION**: In Azure portal, go to your translate Service you created → Keys and Endpoint → find the "Location/Region"
-- **TRANSLATE_SERVICE_KEY**: In Azure portal, go to your Language Service you created → Keys and Endpoint → find the "KEY 1"
+- **TRANSLATE_SERVICE_KEY**: In Azure portal, go to your translate Service you created → Keys and Endpoint → find the "KEY 1"
 
 ## Running the Application
 
