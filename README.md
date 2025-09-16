@@ -82,6 +82,8 @@ A sample application that uses Azure AI Foundry Speech Service for real-time spe
 ### 🖼️ Image Analysis
 A sample application that uses Azure AI Foundry Vision Service for image analysis. It analyzes images to detect aptions, tags, objects, and people.
 
+### 🖼️ Read Image Text
+A sample application that uses Azure AI Foundry Computer Vision Service to extract text from images using OCR (Optical Character Recognition). It can read printed and handwritten text from images and return the extracted content.
 
 ## Quick Start
 
