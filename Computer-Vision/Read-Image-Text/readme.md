@@ -8,8 +8,8 @@ A sample application that uses Azure AI Foundry Computer Vision Service to extra
 This application performs the following tasks:
 - Initializes the Azure Computer Vision client.
 - Accepts an image file for analysis (default or via command-line).
-- Read images words.
-- Prints images text and word list to the console.
+- Read images text.
+- Prints images text and individual words to the console.
 - Annotates the image with detected lines and words.
 - Saves annotated images to files.
 
