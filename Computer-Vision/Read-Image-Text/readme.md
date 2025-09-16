@@ -9,7 +9,7 @@ This application performs the following tasks:
 - Initializes the Azure Computer Vision client.
 - Accepts an image file for analysis (default or via command-line).
 - Read images text.
-- Prints images text and individual words to the console.
+- Prints image text and individual words to the console.
 - Annotates the image with detected lines and words.
 - Saves annotated images to files.
 
