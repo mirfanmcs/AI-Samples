@@ -43,7 +43,7 @@ pip install -r requirements.txt --user
 Create a `.env` file in the project root directory with the following variables:
 
 ```env
-# AI Foundry Translate Service Endpoint
+# AI Foundry Computer Vision Service Endpoint
 CV_SERVICE_ENDPOINT=your-computer-vision-service-endpoint
 CV_SERVICE_KEY=your-computer-vision-service-key
 ```
