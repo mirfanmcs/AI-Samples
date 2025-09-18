@@ -34,16 +34,16 @@ def main():
     result = analyse_image(image_file)
     
     # Get image captions
-    get_captions(result)
+    #get_captions(result)
  
     # Get image tags
-    get_image_tags(result)
+    #get_image_tags(result)
 
     # Get objects in the image
     get_objects_in_image(result,image_file)
 
     # Get people in the image
-    get_people_in_image(result,image_file)
+    #get_people_in_image(result,image_file)
 
 
             

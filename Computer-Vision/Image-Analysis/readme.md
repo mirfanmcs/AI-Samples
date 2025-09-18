@@ -1,6 +1,6 @@
 # Image Analysis
 
-A sample application that uses Azure AI Foundry Vision Service for image analysis. It analyzes images to detect aptions, tags, objects, and people.
+A sample application that uses Azure AI Foundry Computer Vision Service for image analysis. It analyzes images to detect aptions, tags, objects, and people.
 
 
 ## Overview
@@ -60,8 +60,8 @@ CV_SERVICE_KEY=your-computer-vision-service-key
    python app.py images/street.jpg
    ```
    
-   Notice the object.jpg and people.jpg file created annotating objects and people in the original image. 
-   Repeat this step for each image in the images folder. 
+Notice the object.jpg and people.jpg file created annotating objects and people in the original image. 
+Repeat this step for each image in the images folder. 
 
 
 ## Dependencies
