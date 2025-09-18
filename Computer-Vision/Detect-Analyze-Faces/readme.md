@@ -77,7 +77,7 @@ FACE_SERVICE_KEY=your-face-service-key
 
 If you get authentication errors:
 1. Check that your FACE_SERVICE_ENDPOINT is correct
-3. Check that your FACE_SERVICE_KEY is correct
+2. Check that your FACE_SERVICE_KEY is correct
 
 
 ### Package Issues

@@ -77,7 +77,7 @@ CV_SERVICE_KEY=your-computer-vision-service-key
 
 If you get authentication errors:
 1. Check that your CV_SERVICE_ENDPOINT is correct
-3. Check that your CV_SERVICE_KEY is correct
+2. Check that your CV_SERVICE_KEY is correct
 
 
 ### Package Issues

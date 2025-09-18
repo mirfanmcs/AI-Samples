@@ -88,6 +88,9 @@ A sample application that uses Azure AI Foundry Computer Vision Service to extra
 ### 👤 Detect and Analyze Faces
 A sample application that uses Azure AI Foundry Face Service to detect and analyze faces in images. It provides information about dedected faces.
 
+### 🏷️ Classify Images
+A sample application that uses Azure AI Foundry Custom Vision Service to classify images into predefined categories. It provides insights into the content of images based on trained models.
+
 ## Quick Start
 
 
