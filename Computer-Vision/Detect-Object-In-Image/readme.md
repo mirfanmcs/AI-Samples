@@ -1,4 +1,4 @@
-# Detect Object in Image
+# Detect Objects in Image
 
 A sample application that uses Azure AI Foundry Custom Vision Service to detect and identify objects within images. It can locate multiple objects and provide bounding boxes with confidence scores.
 
