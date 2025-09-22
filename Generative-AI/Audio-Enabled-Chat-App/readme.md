@@ -1,20 +1,15 @@
-# Azure AI Foundry Vision Enabled Chat Application
+# Audio Enabled Chat Application
 
-A chat application that uses Azure AI Foundry to interact with OpenAI models through the Azure AI Foundry Python SDK. It uses multimodel to send text and image data and answer questions about image.
+A chat application that uses Azure AI Foundry to interact with OpenAI models through the Azure AI Foundry Python SDK. It uses multimodel to send text and audio prompt.
 
 ## Overview
 
 This application demonstrates how to:
-- Loads configuration from a .env file for Azure endpoint and model deployment.
-- Authenticates using Microsoft Entra ID and connects to Azure AI Foundry services.
-- Loads a default image or accepts an image file path from the command line.
-- Converts the image to a base64-encoded data URL for API usage.
-- Allows users to ask questions about the image in a continuous loop until 'quit' is entered.
-- Acts as a grocery store produce expert, providing detailed answers about fruits.
-- Sends both text and image data to the OpenAI Vision API for generating responses.
-- Outputs AI-generated responses to the user’s questions.
-
-
+- Connect to Azure AI Foundry using Microsoft Entra ID authentication
+- Use the Azure AI Projects SDK to get an OpenAI client
+- Create a streaming chat interface in the console
+- Maintain conversation history throughout the session
+- This app is using multimodal (Phi-4) to enable speech prompt. If you want to use only a monomodel i.e. gpt-4o, you can still enable speech prompt by first using speech to text AI service to convert speech to text and than pass text prompt to chat completions.
 
 ## Prerequisites
 
@@ -77,15 +72,18 @@ MODEL_DEPLOYMENT=your-model-deployment-name
 
 2. Run the application:
    ```bash
-   python app.py images/mystery-fruit.jpeg
+   python app.py
    ```
 
 3. The application will start and prompt you to enter messages. Type your questions or prompts and press Enter.
-Enter prompt `What is this fruit? What recipes could I use it in?`.
+
+4. The AI will respond in a streaming fashion (text appears as it's generated).
 
 5. Type `quit` to exit the application.
 
 ## Features
+
+- **Streaming responses**: See the AI response being generated in real-time
 - **Conversation history**: The app maintains context throughout the session
 - **Simple interface**: Clean console-based interaction
 - **Secure authentication**: Uses Azure CLI authentication (no API keys stored in code)
@@ -96,7 +94,7 @@ Enter prompt `What is this fruit? What recipes could I use it in?`.
 - `azure-identity`: Azure authentication library
 - `openai`: OpenAI Python SDK (used internally by azure-ai-projects)
 - `python-dotenv`: For loading environment variables from .env file
-
+- `sounddevice`: For sound service 
 
 ## Troubleshooting
 
@@ -118,7 +116,7 @@ If you get model-related errors:
 
 If you encounter package import errors:
 1. Make sure all dependencies are installed: `pip install -r requirements.txt --user`
-2. Try upgrading packages: `pip install --upgrade azure-ai-projects azure-identity`
+2. Try upgrading packages: `pip install --upgrade azure-ai-projects azure-identity sounddevice`
 
 ## Project Structure
 
@@ -127,7 +125,6 @@ AI-Foundry-Chat-App/
 ├── app.py              # Main application file
 ├── requirements.txt    # Python dependencies
 ├── readme.md          # This file
-├── images/            # Test images
 ├── install.sh         # Installation script (if applicable)
 └── .env               # Environment variables (create this file)
 ```

@@ -16,10 +16,10 @@ A modern web-based chat interface for Azure OpenAI with real-time streaming resp
 ### ⚡ Azure AI Foundry Chat Application
 A chat application that uses Azure AI Foundry to interact with OpenAI models through the Azure AI Foundry Python SDK.
 
-### 🔊 AI Foundry Audio Enabled Chat App
+### 🔊 Audio Enabled Chat App
 A chat application that uses Azure AI Foundry to interact with OpenAI models through the Azure AI Foundry Python SDK. It uses multimodel to send text and audio prompt.
 
-### 🖼️ AI Foundry Vision Enabled Chat App
+### 🖼️ Vision Enabled Chat App
 A chat application that uses Azure AI Foundry to interact with OpenAI models through the Azure AI Foundry Python SDK. It uses multimodel to send text and image data and answer questions about image.
 
 ### 🔄 Prompt Flow Chat App
@@ -31,6 +31,8 @@ A Python application that demonstrates how to interact with Azure OpenAI's chat 
 ### 🌐📚 Azure OpenAI UI RAG Based Chat Application
 A modern web-based chat interface for Azure OpenAI using RAG pattern. Built with Flask backend and vanilla JavaScript frontend with clean separation of concerns.
 
+### 🖌️ Generate Image
+A sample application that uses Azure AI Foundry Vision Service to generate images from textual descriptions. It leverages advanced generative AI models to create visuals based on user-provided prompts.
 
 ## Agentic-AI
 
