@@ -13,13 +13,14 @@ A modern web-based chat interface for Azure OpenAI with real-time streaming resp
 ### 🔊 Azure OpenAI Audio Enabled UI Based Chat Application
 A modern web-based chat interface for Azure OpenAI with real-time streaming responses and audio input support. Built with Flask backend and vanilla JavaScript frontend, using browser speech-to-text API to enable audio-enabled chat.
 
-
 ### ⚡ Azure AI Foundry Chat Application
-A chat application that uses Azure AI Foundry (formerly Azure AI Studio) to interact with OpenAI models through the Azure AI Foundry Python SDK.
+A chat application that uses Azure AI Foundry to interact with OpenAI models through the Azure AI Foundry Python SDK.
 
 ### 🔊 AI Foundry Audio Enabled Chat App
-A chat application that uses Azure AI Foundry (formerly Azure AI Studio) to interact with OpenAI models through the Azure AI Foundry Python SDK. It uses multimodel to send text and audio prompt.
+A chat application that uses Azure AI Foundry to interact with OpenAI models through the Azure AI Foundry Python SDK. It uses multimodel to send text and audio prompt.
 
+### 🖼️ AI Foundry Vision Enabled Chat App
+A chat application that uses Azure AI Foundry to interact with OpenAI models through the Azure AI Foundry Python SDK. It uses multimodel to send text and image data and answer questions about image.
 
 ### 🔄 Prompt Flow Chat App
 A comprehensive travel chat application built with Microsoft PromptFlow, featuring an intelligent chat bot and automated evaluation system with Azure OpenAI integration.
@@ -93,6 +94,7 @@ A sample application that uses Azure AI Foundry Custom Vision Service to classif
 
 ### 🔍 Detect Objects In Image
 A sample application that uses Azure AI Foundry Custom Vision Service to detect and identify objects within images. It can locate multiple objects and provide bounding boxes with confidence scores.
+
 
 
 ## Quick Start
