@@ -98,9 +98,14 @@ A sample application that uses Azure AI Foundry Custom Vision Service to classif
 A sample application that uses Azure AI Foundry Custom Vision Service to detect and identify objects within images. It can locate multiple objects and provide bounding boxes with confidence scores.
 
 
+## Information-Extraction
+
+### 🧾 Extract Info Using AI Content Understanding
+A sample application that uses Azure AI Foundry Content Understanding Service to extract structured information from documents and images. It leverages AI models to identify key fields, entities, and relationships within unstructured content.
+
+
 
 ## Quick Start
-
 
 1. Choose a project based on your needs
 2. Navigate to the project folder
@@ -109,3 +114,4 @@ A sample application that uses Azure AI Foundry Custom Vision Service to detect 
 5. Run the application
 
 Each project includes detailed setup instructions and documentation in its respective README file.
+
