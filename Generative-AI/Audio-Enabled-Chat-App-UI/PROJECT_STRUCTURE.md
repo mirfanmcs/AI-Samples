@@ -1,7 +1,7 @@
 # Project Structure Overview
 
 ```
-Simple-UI-Chat-App/
+Audio-Enabled-Chat-App-UI/
 │
 ├── 📁 frontend/                    # Frontend assets and templates
 │   ├── 📁 templates/

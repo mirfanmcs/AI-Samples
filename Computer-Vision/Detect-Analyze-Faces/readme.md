@@ -89,7 +89,7 @@ If you encounter package import errors:
 ## Project Structure
 
 ```
-Text-Analysis/
+Detect-Analyze-Faces/
 ├── app.py               # Main application file
 ├── requirements.txt     # Python dependencies
 ├── images/              # Images for text read

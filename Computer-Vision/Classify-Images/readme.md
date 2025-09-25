@@ -116,7 +116,7 @@ If you encounter package import errors:
 ## Project Structure
 
 ```
-Text-Analysis/
+Classify-Images/
 ├── training-app.py      # Code for training the model
 ├── prediction-app.py    # Code for testing the model
 ├── requirements.txt     # Python dependencies

@@ -100,7 +100,7 @@ If you encounter package import errors:
 ## Project Structure
 
 ```
-AI-Foundry-Chat-App/
+Extract-Info-Using-AI-Content-Understanding/
 ├── create-analyzer.py   # Create analyzer in AI Foundry Hub project using REST API
 ├── read-card.py         # Extract contents using AI Foundry REST API
 ├── biz-card.json        # Schema of business card

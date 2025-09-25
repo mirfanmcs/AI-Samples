@@ -98,7 +98,7 @@ If you encounter package import errors:
 ## Project Structure
 
 ```
-Text-Analysis/
+Custom-Text-Classification/
 ├── app.py              # Main application file
 ├── requirements.txt    # Python dependencies
 ├── readme.md          # This file

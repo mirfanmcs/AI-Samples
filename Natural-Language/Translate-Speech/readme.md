@@ -84,7 +84,7 @@ If you encounter package import errors:
 ## Project Structure
 
 ```
-Text-Analysis/
+Translate-Speech/
 ├── app.py               # Main application file
 ├── requirements.txt     # Python dependencies
 ├── readme.md            # This file

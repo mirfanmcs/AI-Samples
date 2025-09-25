@@ -149,7 +149,7 @@ If you encounter package import errors:
 ## Project Structure
 
 ```
-Text-Analysis/
+Conversational-Language-Understanding/
 ├── app.py              # Main application file
 ├── classes/                    # Classes
 │   ├── date_time_helper.py              # Date time helper functions

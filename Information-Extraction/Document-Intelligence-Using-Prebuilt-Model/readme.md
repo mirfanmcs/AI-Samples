@@ -1,6 +1,6 @@
-# Document Intelligence
+# Document Intelligence Using Prebuilt Model
 
-A sample application that uses Azure AI Foundry Document Intelligence Service to analyze, extract, and structure information from documents. It supports processing forms, invoices, receipts, and other document types using advanced AI models.
+A sample application that uses Azure AI Foundry Document Intelligence Service pre build model to analyze, extract, and structure information from documents. It supports processing forms, invoices, receipts, and other document types using advanced AI models.
 
 
 ## Overview
@@ -88,7 +88,7 @@ If you encounter package import errors:
 ## Project Structure
 
 ```
-AI-Foundry-Chat-App/
+Document-Intelligence-Using-Prebuilt-Model/
 ├── app.py              # Main application file
 ├── requirements.txt     # Python dependencies
 ├── readme.md            # This file

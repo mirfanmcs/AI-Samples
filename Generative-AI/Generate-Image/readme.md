@@ -120,7 +120,7 @@ If you encounter package import errors:
 ## Project Structure
 
 ```
-AI-Foundry-Chat-App/
+Generate-Image/
 ├── app.py              # Main application file
 ├── requirements.txt    # Python dependencies
 ├── readme.md          # This file

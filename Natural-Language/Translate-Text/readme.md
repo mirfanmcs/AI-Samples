@@ -90,7 +90,7 @@ If you encounter package import errors:
 ## Project Structure
 
 ```
-Text-Analysis/
+Translate-Text/
 ├── app.py               # Main application file
 ├── requirements.txt     # Python dependencies
 ├── readme.md            # This file

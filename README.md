@@ -102,8 +102,11 @@ A sample application that uses Azure AI Foundry Custom Vision Service to detect 
 ### 🧾 Extract Info Using AI Content Understanding
 A sample application that uses Azure AI Foundry Content Understanding Service to extract structured information from documents and images. It leverages AI models to identify key fields, entities, and relationships within unstructured content.
 
-### �️ Document Intelligence
-A sample application that uses Azure AI Foundry Document Intelligence Service to analyze, extract, and structure information from documents. It supports processing forms, invoices, receipts, and other document types using advanced AI models.
+### �️ Document Intelligence Using Prebuilt Model
+A sample application that uses Azure AI Foundry Document Intelligence Service pre build model to analyze, extract, and structure information from documents. It supports processing forms, invoices, receipts, and other document types using advanced AI models.
+
+### 🗂️ Document Intelligence Using Custom Model
+A sample application that uses Azure AI Foundry Document Intelligence Service with a custom model to analyze, extract, and structure information from documents. It enables tailored extraction for specific document types and custom fields defined by the user.
 
 
 ## Quick Start

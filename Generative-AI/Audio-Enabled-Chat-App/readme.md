@@ -121,7 +121,7 @@ If you encounter package import errors:
 ## Project Structure
 
 ```
-AI-Foundry-Chat-App/
+Audio-Enabled-Chat-App/
 ├── app.py              # Main application file
 ├── requirements.txt    # Python dependencies
 ├── readme.md          # This file
