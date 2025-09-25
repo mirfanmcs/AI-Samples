@@ -108,6 +108,9 @@ A sample application that uses Azure AI Foundry Document Intelligence Service pr
 ### 🗂️ Document Intelligence Using Custom Model
 A sample application that uses Azure AI Foundry Document Intelligence Service with a custom model to analyze, extract, and structure information from documents. It enables tailored extraction for specific document types and custom fields defined by the user.
 
+### 🔍 Knowledge Mining Using AI Search
+A sample application that uses Azure AI Search to perform knowledge mining operations on large datasets. It demonstrates how to create search indexes, extract insights from unstructured data, and build intelligent search experiences.
+
 
 ## Quick Start
 

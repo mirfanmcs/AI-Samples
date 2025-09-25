@@ -37,7 +37,7 @@ pip install -r requirements.txt --user
 - Create Azure AI Foundry Document Intelligence Service in Azure Portal [https://portal.azure.com/](https://portal.azure.com/). Enable system managed identity when you create service. 
 - Create the storage account in the same region where you created document intelligence service
 - Open storage account you created. Under Access Control (IAM), give `Storage Blob Data Contributor` role to the managed identity of your document intelligence resource. 
-- Create the blob container in your storage account and upload all files under `sample-forms` folder. This data will be used to train the custom model. Note that training data includes `.labels.json` and `.ocr.json` files. Additionaly it incldues `fields.json` file. These will be used to train model. You can generate these files for your training data using the document intelligence pre built models. 
+- Create the blob container in your storage account and upload all files from `sample-forms` folder. This data will be used to train the custom model. Note that training data includes `.labels.json` and `.ocr.json` files. Additionaly it incldues `fields.json` file. These will be used to train model. You can generate these files for your training data using the document intelligence pre built models. 
 - Open Document Intelligence Studio on [https://documentintelligence.ai.azure.com/studio](https://documentintelligence.ai.azure.com/studio).
 - Create a project under Custom models → Custom extraction model.
 - Select your storage account under training data source.
