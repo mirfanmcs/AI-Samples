@@ -54,6 +54,9 @@ Semantic Kernel Agent application that uses the `AzureAIAgent` class to build an
 ### 🧠 Semantic Kernel Multi Agent Application
 Demonstrates multi-agent orchestration using Azure AI Foundry Python SDK and Semantic Kernel. Automates incident management and DevOps actions by coordinating specialized agents and custom plugins for log analysis and DevOps tasks.
 
+### 🌐 Remote Agents With A2A
+A sample application that demonstrates how to use Azure AI Foundry Agent-to-Agent (A2A) communication to orchestrate and coordinate remote agents. It enables distributed AI workflows and collaboration between agents across different environments.
+
 ## Natural-Language
 
 ### 📝 Text Analysis
