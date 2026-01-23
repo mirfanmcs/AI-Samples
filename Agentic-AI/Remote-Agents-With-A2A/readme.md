@@ -86,6 +86,9 @@ A sample application that demonstrates how to use Azure AI Foundry Agent-to-Agen
    ```
 3. Enter prompts following prompt in the client terminal. Type `quit` to exit.
     `Create a title and outline for an article about React programming.`
+4. Enter following URLs to see agent cards:
+   - Outline Agent: http://localhost:10008/.well-known/agent.json
+   - Title Agent: http://localhost:10007/.well-known/agent.json
 
 ## Troubleshooting
 
