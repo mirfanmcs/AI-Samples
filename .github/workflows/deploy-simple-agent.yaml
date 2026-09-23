@@ -1,0 +1,42 @@
+name: Deploy Simple Agent
+
+on:
+  push:
+    paths:
+      - 'Agentic-AI/Simple-Agent-App/Agents/**'
+      - 'Agentic-AI/Simple-Agent-App/user_functions.py'
+      - 'Agentic-AI/Simple-Agent-App/requirements.txt'
+      - '.github/workflows/deploy-simple-agent.yaml'
+  workflow_dispatch:
+
+jobs:
+  deploy-simple-agent:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create environment file from secret
+        run: 'echo "$ENV" > Agentic-AI/Simple-Agent-App/.env'
+        shell: bash
+        env:
+          ENV: ${{ secrets.ENV }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r Agentic-AI/Simple-Agent-App/requirements.txt
+
+      - name: Login to Azure
+        uses: azure/login@v2.1.1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS_AGENT_DEPLOY }}
+
+      - name: Deploy simple agent
+        working-directory: Agentic-AI/Simple-Agent-App
+        run: python Agents/simpleAgent_initializer.py
