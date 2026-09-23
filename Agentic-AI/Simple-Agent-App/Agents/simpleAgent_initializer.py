@@ -41,7 +41,7 @@ def main() -> None:
     )
 
     with agent_client:
-        initialize_agent(
+        agent = initialize_agent(
             agent_client=agent_client,
             model=deployment,
             name=agent_name,
@@ -49,6 +49,7 @@ def main() -> None:
             instructions=AGENT_INSTRUCTIONS,
             toolset=create_toolset(),
         )
+        print(f"Set AGENT_ID={agent.id} in .env before running app.py")
 
 
 if __name__ == "__main__":

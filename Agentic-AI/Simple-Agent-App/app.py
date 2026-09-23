@@ -1,16 +1,44 @@
 import os
 from pathlib import Path
+from typing import Any
 
 from azure.ai.agents import AgentsClient
-from azure.ai.agents.models import ListSortOrder, MessageRole
+from azure.ai.agents.models import (
+    FunctionTool,
+    ListSortOrder,
+    MessageRole,
+    RequiredMcpToolCall,
+    RunHandler,
+    ThreadRun,
+    ToolApproval,
+)
 from azure.identity import DefaultAzureCredential
 from dotenv import load_dotenv
 
-from Agents.agent_definition import DEFAULT_AGENT_NAME, create_toolset
-from Agents.agent_initializer import find_agent_by_name
+from user_functions import user_functions
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
+
+
+class McpApprovalHandler(RunHandler):
+    def __init__(self, approved_server_labels: set[str]) -> None:
+        self.approved_server_labels = approved_server_labels
+
+    def submit_mcp_tool_approval(
+        self,
+        *,
+        run: ThreadRun,
+        tool_call: RequiredMcpToolCall,
+        **kwargs: Any,
+    ) -> ToolApproval:
+        approved = tool_call.server_label in self.approved_server_labels
+        action = "Approving" if approved else "Rejecting"
+        print(
+            f"{action} MCP tool '{tool_call.name}' "
+            f"from server '{tool_call.server_label}'."
+        )
+        return ToolApproval(tool_call_id=tool_call.id, approve=approved)
 
 
 def get_required_setting(name: str) -> str:
@@ -24,7 +52,13 @@ def main() -> None:
     load_dotenv(PROJECT_ROOT / ".env")
 
     endpoint = get_required_setting("PROJECT_ENDPOINT")
-    agent_name = os.getenv("AGENT_NAME", DEFAULT_AGENT_NAME)
+    agent_id = get_required_setting("AGENT_ID")
+    approved_server_labels = {
+        label.strip()
+        for label in get_required_setting("MCP_APPROVED_SERVER_LABELS").split(",")
+        if label.strip()
+    }
+    run_handler = McpApprovalHandler(approved_server_labels)
 
     agent_client = AgentsClient(
         endpoint=endpoint,
@@ -33,17 +67,10 @@ def main() -> None:
             exclude_managed_identity_credential=True,
         ),
     )
-    toolset = create_toolset()
 
     with agent_client:
-        agent_client.enable_auto_function_calls(toolset)
-        agent = find_agent_by_name(agent_client, agent_name)
-        if not agent:
-            raise RuntimeError(
-                f"Agent '{agent_name}' was not found. Create it first with: "
-                "python Agents/simpleAgent_initializer.py"
-            )
-
+        agent_client.enable_auto_function_calls(FunctionTool(user_functions))
+        agent = agent_client.get_agent(agent_id)
         thread = agent_client.threads.create()
         print(f"You're chatting with: {agent.name} ({agent.id})")
 
@@ -63,7 +90,7 @@ def main() -> None:
             run = agent_client.runs.create_and_process(
                 thread_id=thread.id,
                 agent_id=agent.id,
-                toolset=toolset,
+                run_handler=run_handler,
             )
 
             if run.status == "failed":

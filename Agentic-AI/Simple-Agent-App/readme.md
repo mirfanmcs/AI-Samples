@@ -21,7 +21,8 @@ Agent provisioning and chat are separated in a flat project structure:
   Azure AI Foundry agent.
 - `Agents/agent_initializer.py` contains shared create-or-update logic.
 - `Agents/agent_definition.py` contains the instructions and tool definitions.
-- `app.py` is a chat client that discovers the deployed agent by name.
+- `app.py` is an independent chat client configured only with the deployed
+  `AGENT_ID`; it does not import any file from `Agents/`.
 
 ## How tool routing works
 
@@ -67,11 +68,15 @@ both capabilities.
    PROJECT_ENDPOINT=https://your-project-name.cognitiveservices.azure.com/
    MODEL_DEPLOYMENT=your-model-deployment-name
    AGENT_NAME=simple-agent
+   AGENT_ID=your-created-agent-id
+   MCP_APPROVED_SERVER_LABELS=mslearn
    ```
 
    Find the project endpoint under your Azure AI Foundry project's settings and
    the deployment name under its model deployments. `AGENT_NAME` is optional
-   and defaults to `simple-agent`.
+   and defaults to `simple-agent`. Set `AGENT_ID` after running the initializer.
+   `MCP_APPROVED_SERVER_LABELS` is the comma-separated allowlist of MCP servers
+   whose tool calls the chat client may approve.
 
 ## Create or update the agent
 
@@ -83,7 +88,8 @@ python Agents/simpleAgent_initializer.py
 
 The initializer searches for `AGENT_NAME`. It updates the existing agent when
 found or creates it when it does not exist, so repeated deployments do not
-intentionally create duplicates.
+intentionally create duplicates. It prints the resulting agent ID. Copy that
+value to `AGENT_ID` in `.env`.
 
 ## Run the chat client
 
@@ -91,9 +97,13 @@ intentionally create duplicates.
 python app.py
 ```
 
-The chat client discovers `AGENT_NAME`, retrieves that persistent agent, and
-creates a new conversation thread. Type `quit` to end the conversation. The
-agent is not deleted when the chat client exits.
+The chat client retrieves the persistent agent using `AGENT_ID` and creates a
+new conversation thread. It has no dependency on agent instructions, MCP
+configuration, agent name, or initializer code. It registers the local Python
+function implementation and applies the generic
+`MCP_APPROVED_SERVER_LABELS` approval policy when the deployed agent requests
+an MCP call. Unlisted MCP servers are rejected. Type `quit` to end the
+conversation. The agent is not deleted when the chat client exits.
 
 ## GitHub Actions deployment
 
@@ -156,14 +166,18 @@ Simple-Agent-App/
 
 ## Troubleshooting
 
-- **Missing environment variable**: Verify `.env` contains both
-  `PROJECT_ENDPOINT` and `MODEL_DEPLOYMENT`.
+- **Missing environment variable**: Agent creation requires `PROJECT_ENDPOINT`
+  and `MODEL_DEPLOYMENT`; the chat client requires `PROJECT_ENDPOINT` and
+  `AGENT_ID`.
 - **Authentication failure**: Run `az login` and confirm that the signed-in
   identity can access the Azure AI Foundry project.
 - **Model deployment failure**: Confirm that `MODEL_DEPLOYMENT` exactly matches
   a deployed model name in the project.
-- **Agent not found**: Run `python Agents/simpleAgent_initializer.py` before
-  starting `app.py`. Confirm both commands use the same `AGENT_NAME`.
+- **Agent not found**: Run `python Agents/simpleAgent_initializer.py`, copy its
+  printed ID into `.env` as `AGENT_ID`, and then run `app.py`.
+- **MCP approval error**: Set `MCP_APPROVED_SERVER_LABELS=mslearn` in `.env`.
+  The chat client uses a `RunHandler` to approve calls only from allowlisted
+  MCP servers.
 - **Import failure**: Run `pip install -r requirements.txt --user` from the
   project root.
 - **MCP failure**: Confirm that the machine can reach
