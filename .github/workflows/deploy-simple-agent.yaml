@@ -1,12 +1,12 @@
 name: Deploy Simple Agent
 
 on:
-  push:
-    paths:
-      - 'Agentic-AI/Simple-Agent-App/Agents/**'
-      - 'Agentic-AI/Simple-Agent-App/user_functions.py'
-      - 'Agentic-AI/Simple-Agent-App/requirements.txt'
-      - '.github/workflows/deploy-simple-agent.yaml'
+  #push:
+  #  paths:
+  #    - 'Agentic-AI/Simple-Agent-App/Agents/**'
+  #    - 'Agentic-AI/Simple-Agent-App/user_functions.py'
+  #    - 'Agentic-AI/Simple-Agent-App/requirements.txt'
+  #    - '.github/workflows/deploy-simple-agent.yaml'
   workflow_dispatch:
 
 jobs:
