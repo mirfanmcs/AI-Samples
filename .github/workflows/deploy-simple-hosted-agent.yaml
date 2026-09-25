@@ -29,15 +29,19 @@ jobs:
         working-directory: Agentic-AI/Simple-Agent-App-Hosted-Agent
         shell: bash
         run: |
+          az acr login "${{ vars.ACR_NAME }}" \
+
           az acr build \
             --registry "${{ vars.ACR_NAME }}" \
             --image "simple-agent-hosted:${{ github.sha }}" \
             --platform linux/amd64 \
             Agents
+            
           ACR_LOGIN_SERVER=$(az acr show \
             --name "${{ vars.ACR_NAME }}" \
             --query loginServer \
             --output tsv)
+          
           echo "image=${ACR_LOGIN_SERVER}/simple-agent-hosted:${{ github.sha }}" \
             >> "$GITHUB_OUTPUT"
 
