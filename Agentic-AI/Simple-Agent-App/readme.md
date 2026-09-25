@@ -15,14 +15,14 @@ The agent instructions require it to select the relevant tool from the user's
 prompt. It does not answer from its own knowledge or perform actions outside
 these two tool capabilities. Unsupported requests are refused.
 
-Agent provisioning and chat are separated in a flat project structure:
+Agent provisioning and chat are separated:
 
 - `Agents/simpleAgent_initializer.py` creates or updates the persistent
   Azure AI Foundry agent.
 - `Agents/agent_initializer.py` contains shared create-or-update logic.
 - `Agents/agent_definition.py` contains the instructions and tool definitions.
-- `app.py` is an independent chat client configured only with the deployed
-  `AGENT_ID`; it does not import any file from `Agents/`.
+- `client-app/app.py` is an independent chat client configured only with the
+  deployed `AGENT_ID`; it does not import any file from `Agents/`.
 
 ## How tool routing works
 
@@ -94,7 +94,7 @@ value to `AGENT_ID` in `.env`.
 ## Run the chat client
 
 ```bash
-python app.py
+python client-app/app.py
 ```
 
 The chat client retrieves the persistent agent using `AGENT_ID` and creates a
@@ -155,7 +155,8 @@ Simple-Agent-App/
 |   |-- agent_definition.py       # Instructions and tool definitions
 |   |-- agent_initializer.py      # Shared create-or-update logic
 |   `-- simpleAgent_initializer.py # Executable agent deployment script
-|-- app.py              # Chat client for the deployed agent
+|-- client-app/
+|   `-- app.py          # Chat client for the deployed agent
 |-- user_functions.py   # Local support-ticket custom function
 |-- requirements.txt    # Python dependencies
 |-- install.sh          # Dependency installation helper
@@ -174,7 +175,8 @@ Simple-Agent-App/
 - **Model deployment failure**: Confirm that `MODEL_DEPLOYMENT` exactly matches
   a deployed model name in the project.
 - **Agent not found**: Run `python Agents/simpleAgent_initializer.py`, copy its
-  printed ID into `.env` as `AGENT_ID`, and then run `app.py`.
+  printed ID into `.env` as `AGENT_ID`, and then run
+  `python client-app/app.py`.
 - **MCP approval error**: Set `MCP_APPROVED_SERVER_LABELS=mslearn` in `.env`.
   The chat client uses a `RunHandler` to approve calls only from allowlisted
   MCP servers.

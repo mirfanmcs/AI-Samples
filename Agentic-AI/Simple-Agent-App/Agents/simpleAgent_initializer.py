@@ -49,7 +49,10 @@ def main() -> None:
             instructions=AGENT_INSTRUCTIONS,
             toolset=create_toolset(),
         )
-        print(f"Set AGENT_ID={agent.id} in .env before running app.py")
+        print(
+            f"Set AGENT_ID={agent.id} in .env before running "
+            "client-app/app.py"
+        )
 
 
 if __name__ == "__main__":
