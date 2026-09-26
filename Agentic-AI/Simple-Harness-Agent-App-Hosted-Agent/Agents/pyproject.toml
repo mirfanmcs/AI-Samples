@@ -1,0 +1,19 @@
+[project]
+name = "simple-harness-agent-hosted"
+version = "0.1.0"
+description = "Microsoft Foundry hosted Agent Harness sample."
+requires-python = ">=3.13"
+dependencies = [
+    "agent-framework-core>=1.18.0",
+    "agent-framework-foundry>=1.13.0",
+    "agent-framework-foundry-hosting>=1.0.0b260813",
+    "debugpy",
+    "python-dotenv>=1.1.0",
+]
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["hosted_harness_agent", "harness_tools"]
