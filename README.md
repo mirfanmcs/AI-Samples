@@ -34,6 +34,9 @@ Hosted version of the Simple Agent App that runs the custom function and MCP int
 ### [🧭 Simple Harness Agent App Hosted Agent](./Agentic-AI/Simple-Harness-Agent-App-Hosted-Agent/readme.md)
 Hosted Microsoft Agent Framework Harness sample for software-delivery planning. It demonstrates Harness planning and todos, workspace files, file memory, skills, a background agent, custom tools, Context7 MCP, and Python SDK container deployment to Microsoft Foundry.
 
+### [💼 WorkIQ Ask Python Hosted Agent](./Agentic-AI/WorkIQ-Ask-python/readme.md)
+Python hosted agent that attaches Work IQ directly as a Foundry-native MCP tool using only the existing `Irf-Work-IQ-MCP` connection. It answers exclusively from the signed-in user's Work IQ data and supports delegated OAuth consent.
+
 ## Computer-Vision
 
 ### [🏷️ Classify Images](./Computer-Vision/Classify-Images/readme.md)

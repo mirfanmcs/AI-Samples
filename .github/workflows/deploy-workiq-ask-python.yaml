@@ -1,0 +1,84 @@
+name: Deploy WorkIQ Ask Python Hosted Agent
+
+on:
+  # push:
+  #   paths:
+  #     - 'Agentic-AI/WorkIQ-Ask-python/Agents/**'
+  #     - 'Agentic-AI/WorkIQ-Ask-python/requirements.txt'
+  #     - 'Agentic-AI/WorkIQ-Ask-python/.env.example'
+  #     - '.github/workflows/deploy-workiq-ask-python.yaml'
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    outputs:
+      image: ${{ steps.build-image.outputs.image }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to Azure
+        uses: azure/login@v2.1.1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS_AGENT_DEPLOY }}
+
+      - name: Build and push hosted agent image
+        id: build-image
+        working-directory: Agentic-AI/WorkIQ-Ask-python
+        shell: bash
+        run: |
+          az acr login -n "${{ vars.ACR_NAME }}"
+
+          az acr build \
+            --registry "${{ vars.ACR_NAME }}" \
+            --image "workiq-ask-python:${{ github.sha }}" \
+            --platform linux/amd64 \
+            Agents
+
+          ACR_LOGIN_SERVER=$(az acr show \
+            --name "${{ vars.ACR_NAME }}" \
+            --query loginServer \
+            --output tsv)
+
+          echo "image=${ACR_LOGIN_SERVER}/workiq-ask-python:${{ github.sha }}" \
+            >> "$GITHUB_OUTPUT"
+
+  Deploy:
+    runs-on: ubuntu-latest
+    needs: Build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create environment file from secret
+        run: 'echo "$ENV" > Agentic-AI/WorkIQ-Ask-python/.env'
+        shell: bash
+        env:
+          ENV: ${{ secrets.ENV }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Login to Azure
+        uses: azure/login@v2.1.1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS_AGENT_DEPLOY }}
+
+      - name: Install deployment dependencies
+        working-directory: Agentic-AI/WorkIQ-Ask-python
+        run: python -m pip install --requirement requirements.txt
+
+      - name: Register hosted agent version
+        working-directory: Agentic-AI/WorkIQ-Ask-python
+        env:
+          HOSTED_AGENT_NAME: WorkIQ-Ask-python
+          WORKIQ_MCP_URL: https://workiq.svc.cloud.microsoft/mcp
+          WORKIQ_CONNECTION_ID: Irf-Work-IQ-MCP
+        run: |
+          python Agents/deploy_hosted_agent.py \
+            --image "${{ needs.Build.outputs.image }}"
