@@ -4,6 +4,9 @@ A collection of AI sample applications demonstrating different implementation ap
 
 ## Agentic-AI
 
+### [🔄 Agent Orchestration Application](./Agentic-AI/Agent-Orchestration/readme.md)
+AI agent application that uses Microsoft Foundry and the Microsoft Agent Framework to process customer feedback through a sequential multi-agent workflow.
+
 ### [🤖 Azure AI Foundry Agent Application](./Agentic-AI/AI-Foundry-Agent-App/readme.md)
 AI Agent application that uses Azure AI Foundry agent service through the Azure AI Foundry Python SDK.
 
